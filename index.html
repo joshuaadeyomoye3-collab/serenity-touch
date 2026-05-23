@@ -194,9 +194,14 @@
     .hero-bg {
       position: absolute; inset: 0;
       background:
-        radial-gradient(ellipse 70% 60% at 18% 55%, rgba(201,168,76,.09) 0%, transparent 100%),
-        radial-gradient(ellipse 50% 40% at 80% 20%, rgba(201,168,76,.06) 0%, transparent 100%),
-        radial-gradient(ellipse 40% 50% at 65% 85%, rgba(201,168,76,.04) 0%, transparent 100%);
+        linear-gradient(to right, rgba(7,7,7,.92) 40%, rgba(7,7,7,.6) 100%),
+        linear-gradient(to bottom, rgba(7,7,7,.3) 0%, rgba(7,7,7,.5) 100%);
+    }
+    .hero-bg-img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      z-index: -1; opacity: .55;
     }
     .hero-grid {
       position: absolute; inset: 0;
@@ -284,16 +289,18 @@
     .about-visual { position: relative; }
     .about-box {
       width: 100%; aspect-ratio: 3/4;
-      background: linear-gradient(155deg, #18160a 0%, #100f08 35%, #181408 65%, #0c0b07 100%);
       border-radius: 20px; position: relative; overflow: hidden;
       border: 1px solid var(--border);
     }
-    .about-box::before {
+    .about-box img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      display: block;
+    }
+    .about-box::after {
       content: '';
       position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse at 30% 70%, rgba(201,168,76,.14) 0%, transparent 60%),
-        radial-gradient(ellipse at 75% 25%, rgba(201,168,76,.07) 0%, transparent 50%);
+      background: linear-gradient(160deg, rgba(7,7,7,.25) 0%, rgba(7,7,7,.1) 50%, rgba(7,7,7,.4) 100%);
     }
     .about-ornament {
       position: absolute; inset: 0;
@@ -354,9 +361,17 @@
     }
     .ther-card:hover { transform: translateY(-8px); border-color: rgba(201,168,76,.5); box-shadow: 0 22px 60px rgba(0,0,0,.5); }
     .ther-avatar { width: 100%; aspect-ratio: 3/4; position: relative; overflow: hidden; }
+    .ther-avatar img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+      display: block;
+      transition: transform .6s ease;
+    }
+    .ther-card:hover .ther-avatar img { transform: scale(1.04); }
     .ther-avatar::after {
       content: ''; position: absolute; bottom: 0; left: 0; right: 0;
       height: 55%; background: linear-gradient(transparent, var(--card));
+      pointer-events: none;
     }
     .ther-init {
       position: absolute; inset: 0;
@@ -570,6 +585,19 @@
     .foot-bottom p { font-size: 12px; color: var(--white-dim); }
     .foot-tagline { font-family: var(--font-d); font-style: italic; color: var(--gold); font-size: 14px; }
 
+    /* GALLERY STRIP */
+    .gallery-strip { overflow: hidden; height: 260px; }
+    .gallery-strip-inner { display: flex; height: 100%; gap: 4px; }
+    .gs-item { flex: 1; overflow: hidden; position: relative; }
+    .gs-item img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      display: block;
+      transition: transform .6s ease;
+      filter: brightness(.75) saturate(.8);
+    }
+    .gs-item:hover img { transform: scale(1.06); filter: brightness(.9) saturate(1); }
+
     /* WHATSAPP FLOAT */
     .wa-float {
       position: fixed; bottom: 28px; right: 28px;
@@ -638,7 +666,9 @@
 
 <!-- ══════════ HERO ══════════ -->
 <section id="hero">
-  <div class="hero-bg"></div>
+  <div class="hero-bg">
+    <img class="hero-bg-img" src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1920&q=80" alt="Luxury spa atmosphere" loading="eager">
+  </div>
   <div class="hero-grid"></div>
   <div class="container">
     <div class="hero-content">
@@ -682,17 +712,7 @@
     <div class="about-grid">
       <div class="about-visual rv">
         <div class="about-box">
-          <div class="about-ornament">
-            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="100" cy="100" r="90" fill="none" stroke="#c9a84c" stroke-width="0.6"/>
-              <circle cx="100" cy="100" r="68" fill="none" stroke="#c9a84c" stroke-width="0.6"/>
-              <circle cx="100" cy="100" r="46" fill="none" stroke="#c9a84c" stroke-width="0.6"/>
-              <path d="M100 10 L100 190 M10 100 L190 100" stroke="#c9a84c" stroke-width="0.5"/>
-              <path d="M100 10 L190 100 L100 190 L10 100 Z" fill="none" stroke="#c9a84c" stroke-width="0.5"/>
-              <circle cx="100" cy="100" r="5" fill="#c9a84c"/>
-              <circle cx="100" cy="100" r="12" fill="none" stroke="#c9a84c" stroke-width="0.5"/>
-            </svg>
-          </div>
+          <img src="images/massage.jpg" alt="Luxury spa wellness session" loading="lazy">
         </div>
         <div class="about-badge">
           <strong>Est. 2023</strong>
@@ -745,26 +765,26 @@
     </div>
     <div class="ther-grid">
       <div class="ther-card rv">
-        <div class="ther-avatar" style="background:linear-gradient(155deg,#1c1508,#2a1e09,#0f0e08);">
-          <div class="ther-init">S</div>
+        <div class="ther-avatar">
+          <img src="images/sophie.jpg" alt="Sophie - Deep Tissue Specialist" loading="lazy">
         </div>
         <div class="ther-info"><h3>Sophie</h3><div class="ther-spec">Deep Tissue Specialist</div></div>
       </div>
       <div class="ther-card rv d1">
-        <div class="ther-avatar" style="background:linear-gradient(155deg,#1a1608,#201a0a,#0f0e08);">
-          <div class="ther-init">S</div>
+        <div class="ther-avatar">
+          <img src="images/stacy.jpg" alt="Stacy - Stress & Muscle Relief Specialist" loading="lazy">
         </div>
         <div class="ther-info"><h3>Stacy</h3><div class="ther-spec">Stress &amp; Muscle Relief Specialist</div></div>
       </div>
       <div class="ther-card rv d2">
-        <div class="ther-avatar" style="background:linear-gradient(155deg,#1a1408,#241c08,#0f0e08);">
-          <div class="ther-init">Y</div>
+        <div class="ther-avatar">
+          <img src="images/yasmine.jpg" alt="Yasmine - Full-Body Specialist" loading="lazy">
         </div>
         <div class="ther-info"><h3>Yasmine</h3><div class="ther-spec">Full-Body &amp; Nuru Package Specialist</div></div>
       </div>
       <div class="ther-card rv d3">
-        <div class="ther-avatar" style="background:linear-gradient(155deg,#1a1608,#221a09,#0f0e08);">
-          <div class="ther-init">L</div>
+        <div class="ther-avatar">
+          <img src="images/linda.jpg" alt="Linda - Hot Stone Specialist" loading="lazy">
         </div>
         <div class="ther-info"><h3>Linda</h3><div class="ther-spec">Hot Stone Massage Specialist</div></div>
       </div>
@@ -974,6 +994,17 @@
   </div>
 </section>
 
+<!-- ══════════ GALLERY STRIP ══════════ -->
+<div class="gallery-strip">
+  <div class="gallery-strip-inner">
+    <div class="gs-item"><img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=600&q=75" alt="Spa stones" loading="lazy"></div>
+    <div class="gs-item"><img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=600&q=75" alt="Luxury massage room" loading="lazy"></div>
+    <div class="gs-item"><img src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&w=600&q=75" alt="Spa candles and oils" loading="lazy"></div>
+    <div class="gs-item"><img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=600&q=75" alt="Massage therapy session" loading="lazy"></div>
+    <div class="gs-item"><img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=600&q=75" alt="Wellness relaxation" loading="lazy"></div>
+  </div>
+</div>
+
 <!-- ══════════ BOOKING ══════════ -->
 <section id="booking">
   <div class="container">
@@ -997,14 +1028,17 @@
         </div>
       </div>
       <div class="booking-form-wrap rv d2">
-        <form onsubmit="handleBook(event)">
+        <form id="booking-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <!-- Redirect back to site after submit -->
+          <input type="hidden" name="_next" value="https://yoursite.vercel.app/#booking">
+          <input type="hidden" name="_subject" value="New Booking Request — Serenity Touch Wellness">
           <div class="fgrid">
-            <div class="fg"><label>Full Name</label><input type="text" placeholder="Your full name" required></div>
-            <div class="fg"><label>Phone Number</label><input type="tel" placeholder="+1 (___) ___-____" required></div>
-            <div class="fg"><label>Email Address</label><input type="email" placeholder="your@email.com" required></div>
+            <div class="fg"><label>Full Name</label><input type="text" name="full_name" placeholder="Your full name" required></div>
+            <div class="fg"><label>Phone Number</label><input type="tel" name="phone" placeholder="+1 (___) ___-____" required></div>
+            <div class="fg"><label>Email Address</label><input type="email" name="email" placeholder="your@email.com" required></div>
             <div class="fg">
               <label>Preferred Session</label>
-              <select required>
+              <select name="session" required>
                 <option value="" disabled selected>Select a service</option>
                 <optgroup label="— Standard Services —">
                   <option>Swedish (Relaxation) Massage</option>
@@ -1028,7 +1062,7 @@
             </div>
             <div class="fg">
               <label>Preferred Duration</label>
-              <select required>
+              <select name="duration" required>
                 <option value="" disabled selected>Select duration</option>
                 <option>30 Minutes</option>
                 <option>45 Minutes</option>
@@ -1040,9 +1074,9 @@
                 <option>Full VIP Premium Package</option>
               </select>
             </div>
-            <div class="fg"><label>Preferred Date &amp; Time</label><input type="datetime-local" required></div>
-            <div class="fg full"><label>Your Location / Address</label><input type="text" placeholder="Full address or city, state" required></div>
-            <div class="fg full"><label>Additional Notes</label><textarea placeholder="Any special requests, health considerations, or preferences..."></textarea></div>
+            <div class="fg"><label>Preferred Date &amp; Time</label><input type="datetime-local" name="preferred_time" required></div>
+            <div class="fg full"><label>Your Location / Address</label><input type="text" name="location" placeholder="Full address or city, state" required></div>
+            <div class="fg full"><label>Additional Notes</label><textarea name="notes" placeholder="Any special requests, health considerations, or preferences..."></textarea></div>
             <p class="form-note">* Our team confirms availability nearby your location before finalizing appointments.</p>
             <div class="fg full"><button type="submit" class="btn-primary" style="width:100%;padding:18px;font-size:11.5px;" id="submit-btn">Send Booking Request</button></div>
           </div>
