@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serenity Touch Wellness — Luxury Mobile Massage & Wellness</title>
+  <meta name="description" content="Premium mobile wellness and massage services delivered to your door. Professional therapists. Private sessions. Luxury wellness experience across the United States.">
+  <meta name="keywords" content="mobile massage, luxury wellness, massage therapy, home massage, deep tissue, hot stone, serenity touch">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --black:      #070707;
+      --deep:       #0e0e0e;
+      --surface:    #121212;
+      --card:       #181818;
+      --gold:       #c9a84c;
+      --gold-light: #e8cb7a;
+      --gold-dim:   rgba(201,168,76,0.14);
+      --gold-faint: rgba(201,168,76,0.06);
+      --white:      #f4efe6;
+      --white-dim:  rgba(244,239,230,0.55);
+      --white-faint:rgba(244,239,230,0.07);
+      --border:     rgba(201,168,76,0.18);
+      --font-d: 'Cormorant Garamond', serif;
+      --font-b: 'Jost', sans-serif;
+      --ease: cubic-bezier(.25,.46,.45,.94);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--font-b);
+      font-weight: 300;
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--black); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 28px; }
+    .section-label {
+      font-family: var(--font-b);
+      font-size: 10.5px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 14px;
+    }
+    .section-title {
+      font-family: var(--font-d);
+      font-size: clamp(36px, 5vw, 58px);
+      font-weight: 300;
+      line-height: 1.08;
+      margin-bottom: 20px;
+    }
+    .divider {
+      width: 56px; height: 1px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin: 22px 0;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--black);
+      padding: 15px 34px;
+      font-family: var(--font-b);
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      font-weight: 500;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background .35s var(--ease), transform .35s var(--ease);
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .btn-outline {
+      display: inline-block;
+      background: transparent;
+      color: var(--white);
+      padding: 15px 34px;
+      font-family: var(--font-b);
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid rgba(244,239,230,.28);
+      border-radius: 4px;
+      transition: border-color .3s, color .3s;
+    }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: transparent;
+      color: #25d366;
+      padding: 15px 34px;
+      font-family: var(--font-b);
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid rgba(37,211,102,.35);
+      border-radius: 4px;
+      transition: background .3s;
+    }
+    .btn-wa:hover { background: rgba(37,211,102,.09); }
+
+    /* REVEAL */
+    .rv {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity .85s ease, transform .85s ease;
+    }
+    .rv.vis { opacity: 1; transform: translateY(0); }
+    .rv.d1 { transition-delay: .12s; }
+    .rv.d2 { transition-delay: .22s; }
+    .rv.d3 { transition-delay: .34s; }
+    .rv.d4 { transition-delay: .44s; }
+
+    /* ═══════════════════ NAVBAR ═══════════════════ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 22px 0;
+      transition: background .4s var(--ease), padding .4s var(--ease), border-color .4s;
+    }
+    nav.scrolled {
+      background: rgba(7,7,7,.96);
+      backdrop-filter: blur(22px);
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--font-d);
+      font-size: 21px; font-weight: 400; letter-spacing: 1px;
+      color: var(--white); text-decoration: none;
+    }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; align-items: center; gap: 38px; list-style: none; }
+    .nav-links a {
+      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--white-dim); text-decoration: none;
+      transition: color .3s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      background: transparent; border: 1px solid var(--gold);
+      color: var(--gold); padding: 9px 22px;
+      font-family: var(--font-b); font-size: 10.5px; letter-spacing: 2px;
+      text-transform: uppercase; cursor: pointer; text-decoration: none;
+      border-radius: 4px; transition: background .3s, color .3s;
+    }
+    .nav-cta:hover { background: var(--gold); color: var(--black); }
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; padding: 4px;
+    }
+    .hamburger span {
+      width: 24px; height: 1px; background: var(--white);
+      transition: .3s;
+    }
+    .mobile-nav {
+      display: none; position: fixed; inset: 0;
+      background: var(--black); z-index: 999;
+      flex-direction: column; align-items: center; justify-content: center; gap: 36px;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      font-family: var(--font-d); font-size: 38px; font-weight: 300;
+      color: var(--white); text-decoration: none; transition: color .3s;
+    }
+    .mobile-nav a:hover { color: var(--gold); }
+    .mobile-close {
+      position: absolute; top: 22px; right: 26px;
+      background: none; border: none; color: var(--white);
+      font-size: 28px; cursor: pointer; line-height: 1;
+    }
+
+    /* ═══════════════════ HERO ═══════════════════ */
+    #hero {
+      min-height: 100vh; display: flex; align-items: center;
+      position: relative; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 18% 55%, rgba(201,168,76,.09) 0%, transparent 100%),
+        radial-gradient(ellipse 50% 40% at 80% 20%, rgba(201,168,76,.06) 0%, transparent 100%),
+        radial-gradient(ellipse 40% 50% at 65% 85%, rgba(201,168,76,.04) 0%, transparent 100%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(201,168,76,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,168,76,.025) 1px, transparent 1px);
+      background-size: 64px 64px;
+    }
+    .hero-content {
+      position: relative; z-index: 1;
+      padding-top: 100px; max-width: 800px;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 14px;
+      font-size: 10.5px; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 34px;
+      opacity: 0; animation: fu 1s .3s forwards;
+    }
+    .hero-eyebrow::before { content: ''; width: 38px; height: 1px; background: var(--gold); }
+    .hero-h1 {
+      font-family: var(--font-d);
+      font-size: clamp(50px, 8vw, 96px);
+      font-weight: 300; line-height: .97;
+      margin-bottom: 18px;
+      opacity: 0; animation: fu 1s .5s forwards;
+    }
+    .hero-h1 em { font-style: italic; color: var(--gold); }
+    .hero-sub {
+      font-family: var(--font-d);
+      font-size: clamp(22px, 3.2vw, 38px);
+      font-weight: 300; font-style: italic;
+      color: var(--gold-light); margin-bottom: 30px;
+      opacity: 0; animation: fu 1s .64s forwards;
+    }
+    .hero-desc {
+      font-size: 15px; color: var(--white-dim); max-width: 500px;
+      margin-bottom: 48px;
+      opacity: 0; animation: fu 1s .8s forwards;
+    }
+    .hero-btns {
+      display: flex; flex-wrap: wrap; gap: 14px;
+      opacity: 0; animation: fu 1s .98s forwards;
+    }
+    .hero-scroll {
+      position: absolute; bottom: 38px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+      opacity: 0; animation: fi 1s 1.6s forwards;
+    }
+    .hero-scroll span {
+      font-size: 9.5px; letter-spacing: 3.5px;
+      text-transform: uppercase; color: var(--white-dim);
+    }
+    .scroll-line {
+      width: 1px; height: 48px;
+      background: linear-gradient(var(--gold), transparent);
+      animation: sp 2s infinite;
+    }
+    @keyframes fu { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes fi { from { opacity:0; } to { opacity:.8; } }
+    @keyframes sp { 0%,100% { opacity:1; } 50% { opacity:.2; } }
+
+    /* ═══════════════════ STATS BAR ═══════════════════ */
+    .stats-bar {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 36px 0;
+    }
+    .stats-inner {
+      display: grid; grid-template-columns: repeat(4,1fr);
+      gap: 24px; text-align: center;
+    }
+    .stat-num {
+      font-family: var(--font-d); font-size: 44px; font-weight: 300;
+      color: var(--gold); line-height: 1; margin-bottom: 8px;
+    }
+    .stat-lbl {
+      font-size: 10.5px; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--white-dim);
+    }
+
+    /* ═══════════════════ ABOUT ═══════════════════ */
+    #about { padding: 130px 0; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 88px; align-items: center; }
+    .about-visual { position: relative; }
+    .about-box {
+      width: 100%; aspect-ratio: 3/4;
+      background: linear-gradient(155deg, #18160a 0%, #100f08 35%, #181408 65%, #0c0b07 100%);
+      border-radius: 20px; position: relative; overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .about-box::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 30% 70%, rgba(201,168,76,.14) 0%, transparent 60%),
+        radial-gradient(ellipse at 75% 25%, rgba(201,168,76,.07) 0%, transparent 50%);
+    }
+    .about-ornament {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .about-ornament svg { width: 220px; height: 220px; opacity: .13; }
+    .about-badge {
+      position: absolute; bottom: -18px; right: -18px;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 18px 22px;
+    }
+    .about-badge strong {
+      font-family: var(--font-d); font-size: 32px; color: var(--gold);
+      display: block; line-height: 1;
+    }
+    .about-badge span {
+      font-size: 10px; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--white-dim);
+    }
+    .about-text p { color: var(--white-dim); font-size: 15px; margin-bottom: 18px; }
+    .about-feats { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 36px; }
+    .about-feat { display: flex; align-items: flex-start; gap: 11px; }
+    .feat-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); margin-top: 8px; flex-shrink: 0; }
+    .about-feat span { font-size: 13px; color: var(--white-dim); }
+
+    /* ═══════════════════ WHY ═══════════════════ */
+    #why { padding: 130px 0; background: var(--surface); }
+    .why-hd { text-align: center; max-width: 580px; margin: 0 auto 76px; }
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px,1fr)); gap: 22px; }
+    .why-card {
+      background: var(--white-faint);
+      border: 1px solid var(--border);
+      border-radius: 18px; padding: 34px;
+      position: relative; overflow: hidden;
+      transition: transform .4s var(--ease), border-color .4s, background .4s;
+      backdrop-filter: blur(10px);
+    }
+    .why-card::after {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      transform: scaleX(0); transition: transform .45s ease;
+    }
+    .why-card:hover::after { transform: scaleX(1); }
+    .why-card:hover { transform: translateY(-5px); border-color: rgba(201,168,76,.4); background: var(--gold-faint); }
+    .why-icon { font-size: 26px; margin-bottom: 20px; }
+    .why-card h3 { font-family: var(--font-d); font-size: 22px; font-weight: 400; margin-bottom: 10px; }
+    .why-card p { font-size: 13.5px; color: var(--white-dim); }
+
+    /* ═══════════════════ THERAPISTS ═══════════════════ */
+    #therapists { padding: 130px 0; }
+    .ther-hd { text-align: center; max-width: 580px; margin: 0 auto 76px; }
+    .ther-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 28px; }
+    .ther-card {
+      border-radius: 18px; overflow: hidden;
+      background: var(--card); border: 1px solid var(--border);
+      transition: transform .4s var(--ease), border-color .4s, box-shadow .4s;
+    }
+    .ther-card:hover { transform: translateY(-8px); border-color: rgba(201,168,76,.5); box-shadow: 0 22px 60px rgba(0,0,0,.5); }
+    .ther-avatar { width: 100%; aspect-ratio: 3/4; position: relative; overflow: hidden; }
+    .ther-avatar::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+      height: 55%; background: linear-gradient(transparent, var(--card));
+    }
+    .ther-init {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-d); font-size: 88px; font-weight: 300;
+      color: rgba(201,168,76,.22);
+    }
+    .ther-info { padding: 18px 22px 26px; }
+    .ther-info h3 { font-family: var(--font-d); font-size: 28px; font-weight: 400; margin-bottom: 4px; }
+    .ther-spec { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); }
+
+    /* ═══════════════════ SERVICES ═══════════════════ */
+    #services { padding: 130px 0; background: var(--surface); }
+    .svc-hd { text-align: center; max-width: 580px; margin: 0 auto 72px; }
+    .svc-tabs {
+      display: flex; justify-content: center; margin-bottom: 58px;
+      border: 1px solid var(--border); border-radius: 7px;
+      overflow: hidden; width: fit-content; margin-left: auto; margin-right: auto;
+    }
+    .tab-btn {
+      padding: 13px 44px; background: transparent; border: none;
+      color: var(--white-dim); font-family: var(--font-b);
+      font-size: 10.5px; letter-spacing: 2.5px; text-transform: uppercase;
+      cursor: pointer; transition: background .3s, color .3s;
+    }
+    .tab-btn.active { background: var(--gold); color: var(--black); font-weight: 500; }
+    .tab-btn:not(.active):hover { background: var(--white-faint); color: var(--white); }
+    .svc-panel { display: none; }
+    .svc-panel.active { display: block; }
+    .svc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px,1fr)); gap: 22px; }
+    .svc-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 18px; padding: 34px;
+      transition: transform .4s var(--ease), border-color .4s, background .4s;
+    }
+    .svc-card:hover { border-color: rgba(201,168,76,.45); background: var(--gold-faint); transform: translateY(-4px); }
+    .svc-icon { font-size: 34px; margin-bottom: 18px; }
+    .svc-card h3 { font-family: var(--font-d); font-size: 26px; font-weight: 400; margin-bottom: 10px; }
+    .svc-card p { font-size: 13.5px; color: var(--white-dim); margin-bottom: 26px; line-height: 1.7; }
+    .svc-pricing { border-top: 1px solid var(--border); padding-top: 18px; }
+    .price-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 7px; }
+    .pi {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 8px 11px; background: var(--white-faint); border-radius: 6px;
+    }
+    .pi.full { grid-column: 1/-1; }
+    .pi-dur { font-size: 12px; color: var(--white-dim); }
+    .pi-amt { font-family: var(--font-d); font-size: 20px; color: var(--gold); }
+    .svc-quote {
+      margin-top: 14px; font-style: italic;
+      font-family: var(--font-d); font-size: 13.5px;
+      color: rgba(201,168,76,.5); text-align: center;
+    }
+
+    /* ═══════════════════ BOOKING ═══════════════════ */
+    #booking { padding: 130px 0; }
+    .booking-wrap { display: grid; grid-template-columns: 1fr 1.35fr; gap: 80px; align-items: start; }
+    .booking-info h2 {
+      font-family: var(--font-d); font-size: clamp(34px,4vw,50px);
+      font-weight: 300; line-height: 1.1; margin-bottom: 20px;
+    }
+    .booking-info p { color: var(--white-dim); font-size: 15px; margin-bottom: 38px; }
+    .bk-contact { display: flex; align-items: center; gap: 16px; margin-bottom: 18px; }
+    .bk-icon {
+      width: 44px; height: 44px; border-radius: 11px;
+      background: var(--gold-dim); display: flex; align-items: center;
+      justify-content: center; font-size: 19px; flex-shrink: 0;
+    }
+    .bk-text small {
+      font-size: 10px; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--gold); display: block;
+    }
+    .bk-text span { font-size: 14.5px; color: var(--white); }
+    .bk-text a { font-size: 14.5px; color: var(--white); text-decoration: none; }
+    .booking-form-wrap {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 20px; padding: 46px;
+    }
+    .fgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .fg { display: flex; flex-direction: column; gap: 7px; }
+    .fg.full { grid-column: 1/-1; }
+    .fg label {
+      font-size: 10px; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--gold);
+    }
+    .fg input, .fg select, .fg textarea {
+      background: var(--surface); border: 1px solid rgba(244,239,230,.1);
+      border-radius: 8px; padding: 13px 17px; color: var(--white);
+      font-family: var(--font-b); font-size: 13.5px; outline: none;
+      transition: border-color .3s; width: 100%;
+    }
+    .fg input:focus, .fg select:focus, .fg textarea:focus { border-color: var(--gold); }
+    .fg select option { background: var(--card); }
+    .fg textarea { resize: vertical; min-height: 96px; }
+    .form-note {
+      font-size: 12px; color: var(--white-dim); font-style: italic;
+      grid-column: 1/-1; margin-bottom: 4px;
+    }
+
+    /* ═══════════════════ TESTIMONIALS ═══════════════════ */
+    #testimonials { padding: 130px 0; background: var(--surface); }
+    .test-hd { text-align: center; max-width: 580px; margin: 0 auto 76px; }
+    .test-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px,1fr)); gap: 22px; }
+    .test-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 18px; padding: 34px;
+      transition: transform .4s var(--ease), border-color .4s;
+    }
+    .test-card:hover { border-color: rgba(201,168,76,.4); transform: translateY(-4px); }
+    .test-q {
+      font-family: var(--font-d); font-size: 64px; color: var(--gold);
+      line-height: .4; margin-bottom: 18px; opacity: .45;
+    }
+    .test-text {
+      font-family: var(--font-d); font-size: 17.5px;
+      font-style: italic; line-height: 1.6;
+      color: var(--white-dim); margin-bottom: 26px;
+    }
+    .test-stars { color: var(--gold); font-size: 13px; letter-spacing: 2.5px; margin-bottom: 14px; }
+    .test-author { display: flex; align-items: center; gap: 14px; }
+    .test-av {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: var(--gold-dim); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-d); font-size: 18px; color: var(--gold);
+      flex-shrink: 0;
+    }
+    .test-name { font-size: 13.5px; font-weight: 500; }
+    .test-loc { font-size: 12px; color: var(--white-dim); }
+
+    /* ═══════════════════ FAQ ═══════════════════ */
+    #faq { padding: 130px 0; }
+    .faq-wrap { display: grid; grid-template-columns: 1fr 1.5fr; gap: 88px; align-items: start; }
+    .faq-hd { position: sticky; top: 100px; }
+    .faq-list { display: flex; flex-direction: column; gap: 11px; }
+    .faq-item {
+      border: 1px solid var(--border); border-radius: 12px;
+      overflow: hidden; transition: border-color .3s;
+    }
+    .faq-item.open { border-color: rgba(201,168,76,.4); }
+    .faq-q {
+      width: 100%; background: var(--card); border: none;
+      padding: 19px 22px; display: flex; align-items: center;
+      justify-content: space-between; gap: 16px; cursor: pointer; text-align: left;
+    }
+    .faq-q span { font-family: var(--font-d); font-size: 20px; font-weight: 400; color: var(--white); }
+    .faq-chev {
+      width: 28px; height: 28px; border: 1px solid var(--border);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; color: var(--gold); font-size: 12px;
+      transition: transform .32s, background .32s, color .32s;
+    }
+    .faq-item.open .faq-chev { transform: rotate(180deg); background: var(--gold); color: var(--black); border-color: var(--gold); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height .4s ease; }
+    .faq-a-in {
+      padding: 0 22px 19px;
+      font-size: 14px; color: var(--white-dim); line-height: 1.82;
+      background: var(--card);
+    }
+
+    /* ═══════════════════ CONTACT ═══════════════════ */
+    #contact {
+      padding: 90px 0; background: var(--surface);
+      border-top: 1px solid var(--border);
+    }
+    .ct-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 88px; align-items: center; }
+    .ct-left h2 {
+      font-family: var(--font-d); font-size: clamp(30px,4vw,48px);
+      font-weight: 300; margin-bottom: 14px;
+    }
+    .ct-left p { color: var(--white-dim); font-size: 15px; }
+    .ct-right { display: flex; flex-direction: column; gap: 18px; }
+    .ct-link {
+      display: flex; align-items: center; gap: 16px;
+      color: var(--white); text-decoration: none; transition: color .3s;
+    }
+    .ct-link:hover { color: var(--gold); }
+    .ct-icon {
+      width: 50px; height: 50px; border: 1px solid var(--border);
+      border-radius: 12px; display: flex; align-items: center; justify-content: center;
+      font-size: 20px; flex-shrink: 0; transition: border-color .3s, background .3s;
+    }
+    .ct-link:hover .ct-icon { border-color: var(--gold); background: var(--gold-dim); }
+    .ct-txt small { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); display: block; }
+
+    /* ═══════════════════ FOOTER ═══════════════════ */
+    footer { background: var(--black); border-top: 1px solid var(--border); padding: 62px 0 28px; }
+    .foot-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 44px; margin-bottom: 48px; }
+    .foot-brand h3 { font-family: var(--font-d); font-size: 23px; font-weight: 400; margin-bottom: 14px; }
+    .foot-brand h3 span { color: var(--gold); }
+    .foot-brand p { font-size: 13px; color: var(--white-dim); line-height: 1.72; margin-bottom: 22px; }
+    .socials { display: flex; gap: 10px; }
+    .soc {
+      width: 38px; height: 38px; border: 1px solid var(--border);
+      border-radius: 8px; display: flex; align-items: center; justify-content: center;
+      color: var(--white-dim); text-decoration: none; font-size: 14px;
+      transition: border-color .3s, color .3s;
+    }
+    .soc:hover { border-color: var(--gold); color: var(--gold); }
+    .foot-col h4 {
+      font-family: var(--font-b); font-size: 10px; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 18px;
+    }
+    .foot-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .foot-col ul li a { font-size: 13px; color: var(--white-dim); text-decoration: none; transition: color .3s; }
+    .foot-col ul li a:hover { color: var(--gold); }
+    .foot-bottom {
+      border-top: 1px solid var(--border); padding-top: 22px;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;
+    }
+    .foot-bottom p { font-size: 12px; color: var(--white-dim); }
+    .foot-tagline { font-family: var(--font-d); font-style: italic; color: var(--gold); font-size: 14px; }
+
+    /* WHATSAPP FLOAT */
+    .wa-float {
+      position: fixed; bottom: 28px; right: 28px;
+      width: 56px; height: 56px; background: #25d366;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      z-index: 900; box-shadow: 0 4px 20px rgba(37,211,102,.4);
+      text-decoration: none; transition: transform .35s var(--ease), box-shadow .35s;
+      animation: wap 2.4s infinite;
+    }
+    .wa-float:hover { transform: scale(1.12); box-shadow: 0 6px 32px rgba(37,211,102,.6); }
+    .wa-float svg { width: 28px; height: 28px; fill: white; }
+    @keyframes wap { 0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,.4); } 50% { box-shadow: 0 4px 32px rgba(37,211,102,.72); } }
+
+    /* ═══════════════════ RESPONSIVE ═══════════════════ */
+    @media (max-width: 1024px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .about-visual { display: none; }
+      .booking-wrap { grid-template-columns: 1fr; gap: 48px; }
+      .faq-wrap { grid-template-columns: 1fr; gap: 52px; }
+      .faq-hd { position: static; }
+      .foot-top { grid-template-columns: 1fr 1fr; }
+      .ct-inner { grid-template-columns: 1fr; gap: 40px; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-cta.dt { display: none; }
+      .hamburger { display: flex; }
+      .stats-inner { grid-template-columns: repeat(2,1fr); }
+      .fgrid { grid-template-columns: 1fr; }
+      .foot-top { grid-template-columns: 1fr; }
+      .svc-tabs { flex-direction: column; width: 100%; }
+      .hero-btns { flex-direction: column; align-items: flex-start; }
+      .btn-primary, .btn-outline, .btn-wa { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════ NAVBAR ══════════ -->
+<nav id="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">Serenity <span>Touch</span></a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#therapists">Therapists</a></li>
+        <li><a href="#booking">Book</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <a href="#booking" class="nav-cta dt">Book Now</a>
+      <div class="hamburger" id="ham"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-nav" id="mnav">
+  <button class="mobile-close" id="mclose">✕</button>
+  <a href="#about" onclick="cmn()">About</a>
+  <a href="#services" onclick="cmn()">Services</a>
+  <a href="#therapists" onclick="cmn()">Therapists</a>
+  <a href="#booking" onclick="cmn()">Book Now</a>
+  <a href="#faq" onclick="cmn()">FAQ</a>
+  <a href="#contact" onclick="cmn()">Contact</a>
+</div>
+
+<!-- ══════════ HERO ══════════ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Premium Mobile Wellness Agency</div>
+      <h1 class="hero-h1">
+        Luxury Mobile<br>Massage &amp;<br><em>Wellness Experience</em>
+      </h1>
+      <p class="hero-sub">Delivered To Your Doorstep</p>
+      <p class="hero-desc">Professional therapists. Private sessions. Premium wellness experience across the United States.</p>
+      <div class="hero-btns">
+        <a href="#booking" class="btn-primary">Book Appointment</a>
+        <a href="#therapists" class="btn-outline">View Therapists</a>
+        <a href="https://wa.me/12193336733" target="_blank" class="btn-wa">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp Chat
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ══════════ STATS ══════════ -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="stats-inner">
+      <div class="rv"><div class="stat-num">500+</div><div class="stat-lbl">Sessions Delivered</div></div>
+      <div class="rv d1"><div class="stat-num">4</div><div class="stat-lbl">Specialist Therapists</div></div>
+      <div class="rv d2"><div class="stat-num">12+</div><div class="stat-lbl">Wellness Services</div></div>
+      <div class="rv d3"><div class="stat-num">100%</div><div class="stat-lbl">Private & Discreet</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ ABOUT ══════════ -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual rv">
+        <div class="about-box">
+          <div class="about-ornament">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="100" cy="100" r="90" fill="none" stroke="#c9a84c" stroke-width="0.6"/>
+              <circle cx="100" cy="100" r="68" fill="none" stroke="#c9a84c" stroke-width="0.6"/>
+              <circle cx="100" cy="100" r="46" fill="none" stroke="#c9a84c" stroke-width="0.6"/>
+              <path d="M100 10 L100 190 M10 100 L190 100" stroke="#c9a84c" stroke-width="0.5"/>
+              <path d="M100 10 L190 100 L100 190 L10 100 Z" fill="none" stroke="#c9a84c" stroke-width="0.5"/>
+              <circle cx="100" cy="100" r="5" fill="#c9a84c"/>
+              <circle cx="100" cy="100" r="12" fill="none" stroke="#c9a84c" stroke-width="0.5"/>
+            </svg>
+          </div>
+        </div>
+        <div class="about-badge">
+          <strong>Est. 2023</strong>
+          <span>Luxury Wellness</span>
+        </div>
+      </div>
+      <div class="about-text rv d2">
+        <span class="section-label">About Us</span>
+        <h2 class="section-title">Where Relaxation Meets <em style="font-style:italic;color:var(--gold)">Premium Care</em></h2>
+        <div class="divider"></div>
+        <p>Welcome to Serenity Touch Wellness — where relaxation, comfort, and premium wellness experiences meet.</p>
+        <p>We specialize in providing luxury mobile wellness services tailored to clients seeking professionalism, convenience, and personalized care. Our goal is to create a seamless booking experience while delivering high-quality wellness sessions designed to help clients relax, recharge, and relieve stress.</p>
+        <p>Every session is customized to your comfort level and wellness preferences. Clients provide their address during booking, and availability is confirmed nearby their area.</p>
+        <div class="about-feats">
+          <div class="about-feat"><div class="feat-dot"></div><span>Professional Licensed Therapists</span></div>
+          <div class="about-feat"><div class="feat-dot"></div><span>Mobile Convenience</span></div>
+          <div class="about-feat"><div class="feat-dot"></div><span>Fully Customized Sessions</span></div>
+          <div class="about-feat"><div class="feat-dot"></div><span>Privacy &amp; Discretion Guaranteed</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ WHY ══════════ -->
+<section id="why">
+  <div class="container">
+    <div class="why-hd rv">
+      <span class="section-label">Our Promise</span>
+      <h2 class="section-title">Why Choose <em style="font-style:italic;color:var(--gold)">Serenity Touch</em></h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card rv"><div class="why-icon">📋</div><h3>Professional Booking</h3><p>A seamless, luxury booking experience from start to finish. Simple, fast, and personalized to your schedule and location.</p></div>
+      <div class="why-card rv d1"><div class="why-icon">🚗</div><h3>Mobile Convenience</h3><p>We come to you. Your home, hotel, or any preferred location across the United States — wellness delivered to your doorstep.</p></div>
+      <div class="why-card rv d2"><div class="why-icon">✦</div><h3>Luxury Experience</h3><p>Premium oils, curated ambiance, and a high-end spa-level experience delivered directly to your preferred space.</p></div>
+      <div class="why-card rv"><div class="why-icon">🤝</div><h3>Personalized Sessions</h3><p>Each session is tailored to your unique wellness needs, stress points, and personal comfort level.</p></div>
+      <div class="why-card rv d1"><div class="why-icon">💬</div><h3>Reliable Support</h3><p>Our team is always reachable via call, email, or WhatsApp for any questions, changes, or special requests.</p></div>
+      <div class="why-card rv d2"><div class="why-icon">🔒</div><h3>Privacy &amp; Discretion</h3><p>Complete confidentiality is at the core of everything we do. Your sessions, your privacy — fully protected.</p></div>
+      <div class="why-card rv d3"><div class="why-icon">💆</div><h3>Stress &amp; Muscle Relief</h3><p>Targeted techniques for deep muscle recovery, tension relief, and full-body rejuvenation that lasts well beyond your session.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ THERAPISTS ══════════ -->
+<section id="therapists">
+  <div class="container">
+    <div class="ther-hd rv">
+      <span class="section-label">Our Specialists</span>
+      <h2 class="section-title">Meet Our Wellness <em style="font-style:italic;color:var(--gold)">Specialists</em></h2>
+    </div>
+    <div class="ther-grid">
+      <div class="ther-card rv">
+        <div class="ther-avatar" style="background:linear-gradient(155deg,#1c1508,#2a1e09,#0f0e08);">
+          <div class="ther-init">S</div>
+        </div>
+        <div class="ther-info"><h3>Sophie</h3><div class="ther-spec">Deep Tissue Specialist</div></div>
+      </div>
+      <div class="ther-card rv d1">
+        <div class="ther-avatar" style="background:linear-gradient(155deg,#1a1608,#201a0a,#0f0e08);">
+          <div class="ther-init">S</div>
+        </div>
+        <div class="ther-info"><h3>Stacy</h3><div class="ther-spec">Stress &amp; Muscle Relief Specialist</div></div>
+      </div>
+      <div class="ther-card rv d2">
+        <div class="ther-avatar" style="background:linear-gradient(155deg,#1a1408,#241c08,#0f0e08);">
+          <div class="ther-init">Y</div>
+        </div>
+        <div class="ther-info"><h3>Yasmine</h3><div class="ther-spec">Full-Body &amp; Nuru Package Specialist</div></div>
+      </div>
+      <div class="ther-card rv d3">
+        <div class="ther-avatar" style="background:linear-gradient(155deg,#1a1608,#221a09,#0f0e08);">
+          <div class="ther-init">L</div>
+        </div>
+        <div class="ther-info"><h3>Linda</h3><div class="ther-spec">Hot Stone Massage Specialist</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SERVICES ══════════ -->
+<section id="services">
+  <div class="container">
+    <div class="svc-hd rv">
+      <span class="section-label">What We Offer</span>
+      <h2 class="section-title">Our Premium <em style="font-style:italic;color:var(--gold)">Services</em></h2>
+    </div>
+    <div class="svc-tabs">
+      <button class="tab-btn active" onclick="swTab('std',this)">Standard Services</button>
+      <button class="tab-btn" onclick="swTab('prem',this)">Premium Services</button>
+    </div>
+
+    <!-- STANDARD -->
+    <div id="std" class="svc-panel active">
+      <div class="svc-grid">
+        <div class="svc-card rv">
+          <div class="svc-icon">🌿</div>
+          <h3>Swedish Massage</h3>
+          <p>A classic technique designed to promote overall relaxation, improve circulation, and relieve muscle tension through long, flowing strokes and gentle kneading.</p>
+          <div class="svc-pricing">
+            <div class="price-grid">
+              <div class="pi"><span class="pi-dur">30 Min</span><span class="pi-amt">$100</span></div>
+              <div class="pi"><span class="pi-dur">45 Min</span><span class="pi-amt">$150</span></div>
+              <div class="pi"><span class="pi-dur">1 Hour</span><span class="pi-amt">$200</span></div>
+              <div class="pi"><span class="pi-dur">2 Hours</span><span class="pi-amt">$250</span></div>
+            </div>
+          </div>
+          <div class="svc-quote">"Quality, professionalism &amp; premium experience."</div>
+        </div>
+        <div class="svc-card rv d1">
+          <div class="svc-icon">💪</div>
+          <h3>Deep Tissue Massage</h3>
+          <p>Targets deeper layers of muscle and connective tissue. Uses slower, firm pressure to release chronic tension, knots, and muscle pain at the source.</p>
+          <div class="svc-pricing">
+            <div class="price-grid">
+              <div class="pi"><span class="pi-dur">30 Min</span><span class="pi-amt">$100</span></div>
+              <div class="pi"><span class="pi-dur">45 Min</span><span class="pi-amt">$150</span></div>
+              <div class="pi"><span class="pi-dur">1 Hour</span><span class="pi-amt">$200</span></div>
+              <div class="pi"><span class="pi-dur">2 Hours</span><span class="pi-amt">$250</span></div>
+            </div>
+          </div>
+          <div class="svc-quote">"Quality, professionalism &amp; premium experience."</div>
+        </div>
+        <div class="svc-card rv d2">
+          <div class="svc-icon">🧘</div>
+          <h3>Stress &amp; Muscle Relief</h3>
+          <p>Combines gentle relaxation methods with focused muscle therapy. Less intense than deep tissue but more targeted than a standard relaxation massage.</p>
+          <div class="svc-pricing">
+            <div class="price-grid">
+              <div class="pi"><span class="pi-dur">30 Min</span><span class="pi-amt">$100</span></div>
+              <div class="pi"><span class="pi-dur">45 Min</span><span class="pi-amt">$150</span></div>
+              <div class="pi"><span class="pi-dur">1 Hour</span><span class="pi-amt">$200</span></div>
+              <div class="pi"><span class="pi-dur">2 Hours</span><span class="pi-amt">$250</span></div>
+            </div>
+          </div>
+          <div class="svc-quote">"Quality, professionalism &amp; premium experience."</div>
+        </div>
+        <div class="svc-card rv">
+          <div class="svc-icon">✨</div>
+          <h3>Luxury Relaxation Package</h3>
+          <p>An elevated massage experience enhanced with premium oils, calming ambiance, and extended relaxation techniques. This is full-body rejuvenation.</p>
+          <div class="svc-pricing">
+            <div class="price-grid">
+              <div class="pi"><span class="pi-dur">30 Min</span><span class="pi-amt">$100</span></div>
+              <div class="pi"><span class="pi-dur">45 Min</span><span class="pi-amt">$150</span></div>
+              <div class="pi"><span class="pi-dur">1 Hour</span><span class="pi-amt">$200</span></div>
+              <div class="pi"><span class="pi-dur">2 Hours</span><span class="pi-amt">$250</span></div>
+            </div>
+          </div>
+          <div class="svc-quote">"Quality, professionalism &amp; premium experience."</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PREMIUM -->
+    <div id="prem" class="svc-panel">
+      <div class="svc-grid">
+        <div class="svc-card">
+          <div class="svc-icon">🏃</div>
+          <h3>Sports Massage</h3>
+          <p>Designed for athletes and active individuals. Helps prevent injuries, improve flexibility, and accelerate recovery after intense workouts.</p>
+          <div class="svc-pricing"><div class="price-grid">
+            <div class="pi"><span class="pi-dur">1 Hour</span><span class="pi-amt">$250</span></div>
+            <div class="pi"><span class="pi-dur">2 Hours</span><span class="pi-amt">$300</span></div>
+            <div class="pi"><span class="pi-dur">3 Hours</span><span class="pi-amt">$350</span></div>
+            <div class="pi"><span class="pi-dur">4 Hours</span><span class="pi-amt">$400</span></div>
+            <div class="pi"><span class="pi-dur">5 Hours</span><span class="pi-amt">$450</span></div>
+            <div class="pi full"><span class="pi-dur">Full VIP Package</span><span class="pi-amt">$1,000</span></div>
+          </div></div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">🪷</div>
+          <h3>Full-Body / Nuru Massage</h3>
+          <p>A deeply relaxing and sensory experience designed to relieve tension and promote intimacy. Uses Nuru gel for a smooth, skin-to-skin technique.</p>
+          <div class="svc-pricing"><div class="price-grid">
+            <div class="pi"><span class="pi-dur">1 Hour</span><span class="pi-amt">$250</span></div>
+            <div class="pi"><span class="pi-dur">2 Hours</span><span class="pi-amt">$300</span></div>
+            <div class="pi"><span class="pi-dur">3 Hours</span><span class="pi-amt">$350</span></div>
+            <div class="pi"><span class="pi-dur">4 Hours</span><span class="pi-amt">$400</span></div>
+            <div class="pi"><span class="pi-dur">5 Hours</span><span class="pi-amt">$450</span></div>
+            <div class="pi full"><span class="pi-dur">Full VIP Package</span><span class="pi-amt">$1,000</span></div>
+          </div></div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">🧘</div>
+          <h3>Pilates</h3>
+          <p>The ultimate blend of strength, flexibility, and relaxation. Designed to align, strengthen, and soothe your body — balanced and energized.</p>
+          <div class="svc-pricing"><div class="price-grid">
+            <div class="pi"><span class="pi-dur">1 Hour</span><span class="pi-amt">$250</span></div>
+            <div class="pi"><span class="pi-dur">2 Hours</span><span class="pi-amt">$300</span></div>
+            <div class="pi"><span class="pi-dur">3 Hours</span><span class="pi-amt">$350</span></div>
+            <div class="pi"><span class="pi-dur">4 Hours</span><span class="pi-amt">$400</span></div>
+            <div class="pi"><span class="pi-dur">5 Hours</span><span class="pi-amt">$450</span></div>
+            <div class="pi full"><span class="pi-dur">Full VIP Package</span><span class="pi-amt">$1,000</span></div>
+          </div></div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">🪨</div>
+          <h3>Hot Stone Massage</h3>
+          <p>Uses smooth, heated stones placed on the body. The heat helps muscles relax faster, allowing deeper therapeutic pressure without discomfort.</p>
+          <div class="svc-pricing"><div class="price-grid">
+            <div class="pi"><span class="pi-dur">1 Hour</span><span class="pi-amt">$250</span></div>
+            <div class="pi"><span class="pi-dur">2 Hours</span><span class="pi-amt">$300</span></div>
+            <div class="pi"><span class="pi-dur">3 Hours</span><span class="pi-amt">$350</span></div>
+            <div class="pi"><span class="pi-dur">4 Hours</span><span class="pi-amt">$400</span></div>
+            <div class="pi"><span class="pi-dur">5 Hours</span><span class="pi-amt">$450</span></div>
+            <div class="pi full"><span class="pi-dur">Full VIP Package</span><span class="pi-amt">$1,000</span></div>
+          </div></div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">🌸</div>
+          <h3>Aromatherapy Massage</h3>
+          <p>Combines massage with essential oils — each selected for a specific purpose (relaxation, energy, stress relief) — enhancing physical and mental benefits.</p>
+          <div class="svc-pricing"><div class="price-grid">
+            <div class="pi"><span class="pi-dur">1 Hour</span><span class="pi-amt">$250</span></div>
+            <div class="pi"><span class="pi-dur">2 Hours</span><span class="pi-amt">$300</span></div>
+            <div class="pi"><span class="pi-dur">3 Hours</span><span class="pi-amt">$350</span></div>
+            <div class="pi"><span class="pi-dur">5 Hours</span><span class="pi-amt">$450</span></div>
+            <div class="pi full"><span class="pi-dur">Full VIP Package</span><span class="pi-amt">$1,000</span></div>
+          </div></div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">🙏</div>
+          <h3>Thai Massage</h3>
+          <p>An interactive experience where clients participate in guided stretches. Addresses the whole body systemically for improved energy flow and flexibility.</p>
+          <div class="svc-pricing"><div class="price-grid">
+            <div class="pi"><span class="pi-dur">1 Hour</span><span class="pi-amt">$250</span></div>
+            <div class="pi"><span class="pi-dur">2 Hours</span><span class="pi-amt">$300</span></div>
+            <div class="pi"><span class="pi-dur">3 Hours</span><span class="pi-amt">$350</span></div>
+            <div class="pi"><span class="pi-dur">5 Hours</span><span class="pi-amt">$450</span></div>
+            <div class="pi full"><span class="pi-dur">Full VIP Package</span><span class="pi-amt">$1,000</span></div>
+          </div></div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">👣</div>
+          <h3>Reflexology</h3>
+          <p>Focuses on pressure points in the feet, hands, or ears believed to connect to different organs and systems throughout the body for holistic healing.</p>
+          <div class="svc-pricing"><div class="price-grid">
+            <div class="pi"><span class="pi-dur">1 Hour</span><span class="pi-amt">$250</span></div>
+            <div class="pi"><span class="pi-dur">2 Hours</span><span class="pi-amt">$300</span></div>
+            <div class="pi"><span class="pi-dur">3 Hours</span><span class="pi-amt">$350</span></div>
+            <div class="pi full"><span class="pi-dur">Full VIP Package</span><span class="pi-amt">$1,000</span></div>
+          </div></div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">🎯</div>
+          <h3>Trigger Point Therapy</h3>
+          <p>Targets specific "knots" or tight areas in muscles causing referred pain throughout the body. Very focused, clinical, and deeply therapeutic.</p>
+          <div class="svc-pricing"><div class="price-grid">
+            <div class="pi"><span class="pi-dur">1 Hour</span><span class="pi-amt">$250</span></div>
+            <div class="pi"><span class="pi-dur">2 Hours</span><span class="pi-amt">$300</span></div>
+            <div class="pi"><span class="pi-dur">3 Hours</span><span class="pi-amt">$350</span></div>
+            <div class="pi full"><span class="pi-dur">Full VIP Package</span><span class="pi-amt">$1,000</span></div>
+          </div></div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">🤰</div>
+          <h3>Prenatal Massage</h3>
+          <p>Specially designed for pregnant women. Helps reduce swelling, back pain, and stress while ensuring the complete safety of mother and baby.</p>
+          <div class="svc-pricing"><div class="price-grid">
+            <div class="pi"><span class="pi-dur">1 Hour</span><span class="pi-amt">$250</span></div>
+            <div class="pi"><span class="pi-dur">2 Hours</span><span class="pi-amt">$300</span></div>
+            <div class="pi"><span class="pi-dur">3 Hours</span><span class="pi-amt">$350</span></div>
+            <div class="pi full"><span class="pi-dur">Full VIP Package</span><span class="pi-amt">$1,000</span></div>
+          </div></div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">💧</div>
+          <h3>Lymphatic Drainage</h3>
+          <p>A gentle technique that helps move lymph fluids in the body. Excellent for detox, reducing swelling, and giving the immune system a boost.</p>
+          <div class="svc-pricing"><div class="price-grid">
+            <div class="pi"><span class="pi-dur">1 Hour</span><span class="pi-amt">$250</span></div>
+            <div class="pi"><span class="pi-dur">2 Hours</span><span class="pi-amt">$300</span></div>
+            <div class="pi"><span class="pi-dur">3 Hours</span><span class="pi-amt">$350</span></div>
+            <div class="pi full"><span class="pi-dur">Full VIP Package</span><span class="pi-amt">$1,000</span></div>
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ BOOKING ══════════ -->
+<section id="booking">
+  <div class="container">
+    <div class="booking-wrap">
+      <div class="rv">
+        <span class="section-label">Reserve Your Session</span>
+        <h2 class="booking-info" style="font-family:var(--font-d);font-size:clamp(34px,4vw,50px);font-weight:300;line-height:1.1;margin-bottom:18px;">Book Your <em style="font-style:italic;color:var(--gold)">Luxury Experience</em></h2>
+        <div class="divider"></div>
+        <p style="color:var(--white-dim);font-size:15px;margin-bottom:36px;">Fill out the form and our team will confirm a therapist near your location within 24 hours. Every session is personally customized to your needs.</p>
+        <div class="bk-contact">
+          <div class="bk-icon">📞</div>
+          <div class="bk-text"><small>Call Us</small><span>+1 (219) 333-6733</span></div>
+        </div>
+        <div class="bk-contact">
+          <div class="bk-icon">✉️</div>
+          <div class="bk-text"><small>Email Us</small><span>stouchwellness@gmail.com</span></div>
+        </div>
+        <div class="bk-contact">
+          <div class="bk-icon">💬</div>
+          <div class="bk-text"><small>WhatsApp</small><a href="https://wa.me/12193336733" target="_blank">+1 (219) 333-6733</a></div>
+        </div>
+      </div>
+      <div class="booking-form-wrap rv d2">
+        <form onsubmit="handleBook(event)">
+          <div class="fgrid">
+            <div class="fg"><label>Full Name</label><input type="text" placeholder="Your full name" required></div>
+            <div class="fg"><label>Phone Number</label><input type="tel" placeholder="+1 (___) ___-____" required></div>
+            <div class="fg"><label>Email Address</label><input type="email" placeholder="your@email.com" required></div>
+            <div class="fg">
+              <label>Preferred Session</label>
+              <select required>
+                <option value="" disabled selected>Select a service</option>
+                <optgroup label="— Standard Services —">
+                  <option>Swedish (Relaxation) Massage</option>
+                  <option>Deep Tissue Massage</option>
+                  <option>Stress &amp; Muscle Relief</option>
+                  <option>Luxury Relaxation Package</option>
+                </optgroup>
+                <optgroup label="— Premium Services —">
+                  <option>Sports Massage</option>
+                  <option>Full-Body / Nuru Massage Package</option>
+                  <option>Pilates</option>
+                  <option>Hot Stone Massage</option>
+                  <option>Aromatherapy Massage</option>
+                  <option>Thai Massage</option>
+                  <option>Reflexology</option>
+                  <option>Trigger Point Therapy</option>
+                  <option>Prenatal Massage</option>
+                  <option>Lymphatic Drainage Massage</option>
+                </optgroup>
+              </select>
+            </div>
+            <div class="fg">
+              <label>Preferred Duration</label>
+              <select required>
+                <option value="" disabled selected>Select duration</option>
+                <option>30 Minutes</option>
+                <option>45 Minutes</option>
+                <option>1 Hour</option>
+                <option>2 Hours</option>
+                <option>3 Hours</option>
+                <option>4 Hours</option>
+                <option>5 Hours</option>
+                <option>Full VIP Premium Package</option>
+              </select>
+            </div>
+            <div class="fg"><label>Preferred Date &amp; Time</label><input type="datetime-local" required></div>
+            <div class="fg full"><label>Your Location / Address</label><input type="text" placeholder="Full address or city, state" required></div>
+            <div class="fg full"><label>Additional Notes</label><textarea placeholder="Any special requests, health considerations, or preferences..."></textarea></div>
+            <p class="form-note">* Our team confirms availability nearby your location before finalizing appointments.</p>
+            <div class="fg full"><button type="submit" class="btn-primary" style="width:100%;padding:18px;font-size:11.5px;" id="submit-btn">Send Booking Request</button></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ TESTIMONIALS ══════════ -->
+<section id="testimonials">
+  <div class="container">
+    <div class="test-hd rv">
+      <span class="section-label">Client Stories</span>
+      <h2 class="section-title">What Our Clients <em style="font-style:italic;color:var(--gold)">Say</em></h2>
+    </div>
+    <div class="test-grid">
+      <div class="test-card rv">
+        <div class="test-q">"</div>
+        <p class="test-text">From booking to the final minute, everything was flawless. Sophie's deep tissue work was extraordinary — I hadn't felt that relaxed in years. Absolutely worth every penny.</p>
+        <div class="test-stars">★★★★★</div>
+        <div class="test-author"><div class="test-av">A</div><div><div class="test-name">Amanda R.</div><div class="test-loc">Chicago, IL</div></div></div>
+      </div>
+      <div class="test-card rv d1">
+        <div class="test-q">"</div>
+        <p class="test-text">The convenience alone is a game-changer. Stacy came to my hotel before a big conference and I was completely recharged. The professionalism and discretion were top-notch.</p>
+        <div class="test-stars">★★★★★</div>
+        <div class="test-author"><div class="test-av">M</div><div><div class="test-name">Marcus T.</div><div class="test-loc">New York, NY</div></div></div>
+      </div>
+      <div class="test-card rv d2">
+        <div class="test-q">"</div>
+        <p class="test-text">Linda's hot stone massage was unlike anything I've experienced at a regular spa. The personalized session truly addressed all my stress points. Serenity Touch is my go-to now.</p>
+        <div class="test-stars">★★★★★</div>
+        <div class="test-author"><div class="test-av">C</div><div><div class="test-name">Christine L.</div><div class="test-loc">Houston, TX</div></div></div>
+      </div>
+      <div class="test-card rv d3">
+        <div class="test-q">"</div>
+        <p class="test-text">I was hesitant at first, but the booking process was so smooth. Yasmine was wonderful — attentive, skilled, and completely respectful of my preferences. A truly luxury experience.</p>
+        <div class="test-stars">★★★★★</div>
+        <div class="test-author"><div class="test-av">J</div><div><div class="test-name">Jordan M.</div><div class="test-loc">Miami, FL</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FAQ ══════════ -->
+<section id="faq">
+  <div class="container">
+    <div class="faq-wrap">
+      <div class="faq-hd rv">
+        <span class="section-label">Got Questions?</span>
+        <h2 class="section-title">Frequently Asked <em style="font-style:italic;color:var(--gold)">Questions</em></h2>
+        <div class="divider"></div>
+        <p style="color:var(--white-dim);font-size:15px;">Can't find what you're looking for? Reach out directly via WhatsApp or email.</p>
+        <br>
+        <a href="https://wa.me/12193336733" target="_blank" class="btn-outline" style="margin-top:10px;">Chat With Us</a>
+      </div>
+      <div class="faq-list rv d1">
+        <div class="faq-item open">
+          <button class="faq-q" onclick="tFaq(this)"><span>How do bookings work?</span><div class="faq-chev">▾</div></button>
+          <div class="faq-a" style="max-height:220px;"><div class="faq-a-in">Simply fill out our booking form with your preferred service, duration, time, and location. Our team reviews your request and confirms a therapist available in your area within 24 hours. Once confirmed, your therapist arrives at your specified address at the scheduled time.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="tFaq(this)"><span>What areas do you cover?</span><div class="faq-chev">▾</div></button>
+          <div class="faq-a"><div class="faq-a-in">Serenity Touch Wellness operates across the United States. When you submit a booking request, our team verifies therapist availability in your specific area before confirming your appointment. Coverage is subject to therapist proximity.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="tFaq(this)"><span>Are sessions customized?</span><div class="faq-chev">▾</div></button>
+          <div class="faq-a"><div class="faq-a-in">Absolutely. Every session is tailored to your personal comfort level, wellness goals, and specific needs. You can share preferences, areas requiring special attention, or any health considerations when booking or directly with your therapist.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="tFaq(this)"><span>What payment methods are accepted?</span><div class="faq-chev">▾</div></button>
+          <div class="faq-a"><div class="faq-a-in">We accept a range of payment options including cash, Zelle, Cash App, Venmo, and major credit/debit cards. Specific payment details are discussed when your booking is confirmed by our team.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="tFaq(this)"><span>How do I confirm availability?</span><div class="faq-chev">▾</div></button>
+          <div class="faq-a"><div class="faq-a-in">After submitting your form, our team contacts you via phone, email, or WhatsApp to confirm availability near your location. For faster responses, message us directly on WhatsApp at +1 (219) 333-6733.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CONTACT ══════════ -->
+<section id="contact">
+  <div class="container">
+    <div class="ct-inner">
+      <div class="rv">
+        <span class="section-label">Get In Touch</span>
+        <h2 class="ct-left" style="font-family:var(--font-d);font-size:clamp(30px,4vw,48px);font-weight:300;margin-bottom:14px;">Ready to Experience <em style="font-style:italic;color:var(--gold)">True Luxury?</em></h2>
+        <div class="divider"></div>
+        <p style="color:var(--white-dim);font-size:15px;">Reach out to schedule your session or ask any questions. We're available by phone, email, or WhatsApp.</p>
+      </div>
+      <div class="ct-right rv d1">
+        <a href="tel:+12193336733" class="ct-link">
+          <div class="ct-icon">📞</div>
+          <div class="ct-txt"><small>Phone</small><span style="font-size:15px;">+1 (219) 333-6733</span></div>
+        </a>
+        <a href="mailto:stouchwellness@gmail.com" class="ct-link">
+          <div class="ct-icon">✉️</div>
+          <div class="ct-txt"><small>Email</small><span style="font-size:15px;">stouchwellness@gmail.com</span></div>
+        </a>
+        <a href="https://wa.me/12193336733" target="_blank" class="ct-link">
+          <div class="ct-icon">💬</div>
+          <div class="ct-txt"><small>WhatsApp</small><span style="font-size:15px;">+1 (219) 333-6733</span></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="container">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <h3>Serenity <span>Touch</span> Wellness</h3>
+        <p>Premium mobile wellness and massage services delivered to your door. Professional therapists. Luxury experience. Complete privacy — across the United States.</p>
+        <div class="socials">
+          <a href="#" class="soc" aria-label="Instagram">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://wa.me/12193336733" class="soc" aria-label="WhatsApp">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+          <a href="mailto:stouchwellness@gmail.com" class="soc" aria-label="Email">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#therapists">Our Therapists</a></li>
+          <li><a href="#booking">Book a Session</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Swedish Massage</a></li>
+          <li><a href="#services">Deep Tissue</a></li>
+          <li><a href="#services">Hot Stone Massage</a></li>
+          <li><a href="#services">Sports Massage</a></li>
+          <li><a href="#services">Aromatherapy</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+12193336733">+1 (219) 333-6733</a></li>
+          <li><a href="mailto:stouchwellness@gmail.com">stouchwellness@gmail.com</a></li>
+          <li><a href="https://wa.me/12193336733" target="_blank">WhatsApp Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>© 2025 Serenity Touch Wellness. All rights reserved.</p>
+      <p class="foot-tagline">Your Wellness. Your Space. Your Terms.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/12193336733" target="_blank" class="wa-float" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  // Navbar scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50));
+
+  // Mobile nav
+  document.getElementById('ham').onclick = () => document.getElementById('mnav').classList.add('open');
+  document.getElementById('mclose').onclick = () => document.getElementById('mnav').classList.remove('open');
+  function cmn() { document.getElementById('mnav').classList.remove('open'); }
+
+  // Scroll reveal
+  const ro = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+  }, { threshold: 0.08, rootMargin: '0px 0px -36px 0px' });
+  document.querySelectorAll('.rv').forEach(el => ro.observe(el));
+
+  // Service tabs
+  function swTab(id, btn) {
+    document.querySelectorAll('.svc-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  // FAQ
+  function tFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const ans  = item.querySelector('.faq-a');
+    const open = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-a').style.maxHeight = '0';
+    });
+    if (!open) { item.classList.add('open'); ans.style.maxHeight = ans.scrollHeight + 'px'; }
+  }
+  // Init first open
+  const firstFaq = document.querySelector('.faq-item.open .faq-a');
+  if (firstFaq) firstFaq.style.maxHeight = '220px';
+
+  // Booking form
+  function handleBook(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submit-btn');
+    btn.textContent = 'Request Sent ✓';
+    btn.style.background = '#1e5c3a';
+    btn.style.color = '#fff';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.textContent = 'Send Booking Request';
+      btn.style.background = ''; btn.style.color = '';
+      btn.disabled = false;
+      e.target.reset();
+    }, 4000);
+  }
+</script>
+</body>
+</html>
