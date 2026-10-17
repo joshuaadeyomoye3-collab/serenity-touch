@@ -315,6 +315,17 @@
     .flow-panel { display: none; }
     .flow-panel.active { display: block; }
 
+    /* ═══════════════════ TATTOO & CUSTOM FLOW SECTION SPACING ═══════════════════ */
+    /* The massage flow's sections each carry their own top/bottom padding (#about,
+       #services, #why, etc.) so sections never touch. The tattoo and custom flows
+       never got the same treatment, so their sections run flush into one another. */
+    #tattoo-about, #tattoo-experience, #tattoo-techniques, #tattoo-why,
+    #tattoo-artists, #tattoo-services, #tattoo-pricing, #tattoo-gallery,
+    #tattoo-booking, #tattoo-faq,
+    #custom-about, #custom-services, #custom-videos, #custom-team, #custom-booking {
+      padding: 130px 0;
+    }
+
     /* ═══════════════════ TATTOO: ARTISTS ═══════════════════ */
     .artist-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 28px; }
     .artist-card {
@@ -413,7 +424,7 @@
     }
     .price-guide-row {
       display: flex; justify-content: space-between; align-items: baseline;
-      padding: 17px 0; border-top: 1px solid var(--border); gap: 20px;
+      padding: 20px 0; border-top: 1px solid var(--border); gap: 20px;
     }
     .price-guide-row .pg-type { font-size: 14.5px; color: var(--white); }
     .price-guide-row .pg-price { font-family: var(--font-d); font-size: 20px; color: var(--gold); white-space: nowrap; }
@@ -483,7 +494,7 @@
     .file-drop-icon { font-size: 22px; color: var(--gold); margin-bottom: 8px; }
     .file-drop-filename { margin-top: 10px; font-size: 12px; color: var(--gold); }
 
-    .checkbox-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 11px; }
+    .checkbox-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; }
     .cb-item { display: flex; align-items: center; gap: 9px; font-size: 13px; color: var(--white-dim); cursor: pointer; }
     .cb-item input[type="checkbox"] { accent-color: var(--gold); width: 15px; height: 15px; cursor: pointer; flex-shrink: 0; }
     .cb-other { display: flex; align-items: center; gap: 9px; grid-column: 1/-1; }
@@ -550,7 +561,7 @@
       text-transform: uppercase; color: var(--white-dim);
     }
     .about-text p { color: var(--white-dim); font-size: 15px; margin-bottom: 18px; }
-    .about-feats { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 36px; }
+    .about-feats { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 40px; }
     .about-feat { display: flex; align-items: flex-start; gap: 11px; }
     .feat-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); margin-top: 8px; flex-shrink: 0; }
     .about-feat span { font-size: 13px; color: var(--white-dim); }
@@ -590,7 +601,7 @@
     /* ═══════════════════ TECHNIQUE GALLERY (VIDEO) ═══════════════════ */
     #gallery-videos { padding: 130px 0; }
     .vg-hd { text-align: center; max-width: 580px; margin: 0 auto 76px; }
-    .vg-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 22px; }
+    .vg-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 26px; }
     .vg-card {
       background: var(--card); border: 1px solid var(--border); border-radius: 18px;
       overflow: hidden;
@@ -606,7 +617,7 @@
     /* ═══════════════════ WHY ═══════════════════ */
     #why { padding: 130px 0; background: var(--surface); }
     .why-hd { text-align: center; max-width: 580px; margin: 0 auto 76px; }
-    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px,1fr)); gap: 22px; }
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px,1fr)); gap: 26px; }
     .why-card {
       background: var(--white-faint);
       border: 1px solid var(--border);
@@ -701,20 +712,20 @@
     .tab-btn:not(.active):hover { background: var(--white-faint); color: var(--white); }
     .svc-panel { display: none; }
     .svc-panel.active { display: block; }
-    .svc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px,1fr)); gap: 22px; }
+    .svc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px,1fr)); gap: 28px; }
     .svc-card {
       background: var(--card); border: 1px solid var(--border);
-      border-radius: 18px; padding: 34px;
+      border-radius: 18px; padding: 36px;
       transition: transform .4s var(--ease), border-color .4s, background .4s;
     }
     .svc-card:hover { border-color: rgba(201,168,76,.45); background: var(--gold-faint); transform: translateY(-4px); }
     .svc-card h3 { font-family: var(--font-d); font-size: 26px; font-weight: 400; margin-bottom: 10px; }
     .svc-card p { font-size: 13.5px; color: var(--white-dim); margin-bottom: 26px; line-height: 1.7; }
-    .svc-pricing { border-top: 1px solid var(--border); padding-top: 18px; }
-    .price-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 7px; }
+    .svc-pricing { border-top: 1px solid var(--border); padding-top: 20px; }
+    .price-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 11px; }
     .pi {
       display: flex; justify-content: space-between; align-items: center;
-      padding: 8px 11px; background: var(--white-faint); border-radius: 6px;
+      padding: 12px 15px; background: var(--white-faint); border-radius: 6px;
     }
     .pi.full { grid-column: 1/-1; }
     .pi-dur { font-size: 12px; color: var(--white-dim); }
@@ -727,10 +738,10 @@
 
     /* ═══════════════════ FACIAL TREATMENTS ═══════════════════ */
     #facials { padding: 130px 0; }
-    .fac-hd { text-align: center; max-width: 580px; margin: 0 auto 60px; }
+    .fac-hd { text-align: center; max-width: 580px; margin: 0 auto 72px; }
     .fac-tabs-wrap {
       position: relative;
-      overflow-x: auto; overflow-y: hidden; margin-bottom: 50px;
+      overflow-x: auto; overflow-y: hidden; margin-bottom: 58px;
       -webkit-overflow-scrolling: touch; scrollbar-width: thin;
     }
     .fac-tabs-wrap::after {
@@ -742,12 +753,12 @@
     }
     .fac-tabs-wrap.at-end::after { opacity: 0; }
     .fac-tabs {
-      display: flex; gap: 8px; width: max-content; margin: 0 auto;
-      border: 1px solid var(--border); border-radius: 7px; padding: 4px;
+      display: flex; gap: 10px; width: max-content; margin: 0 auto;
+      border: 1px solid var(--border); border-radius: 7px; padding: 5px;
     }
     .fac-tab-btn {
       flex-shrink: 0; white-space: nowrap;
-      padding: 11px 22px; background: transparent; border: none; border-radius: 5px;
+      padding: 12px 24px; background: transparent; border: none; border-radius: 5px;
       color: var(--white-dim); font-family: var(--font-b);
       font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
       cursor: pointer; transition: background .3s, color .3s;
@@ -756,11 +767,11 @@
     .fac-tab-btn:not(.active):hover { background: var(--white-faint); color: var(--white); }
     .fac-panel { display: none; }
     .fac-panel.active { display: block; }
-    .fac-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px,1fr)); gap: 14px; margin-bottom: 50px; }
+    .fac-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px,1fr)); gap: 18px; margin-bottom: 58px; }
     .fac-card {
       display: flex; align-items: center; gap: 12px;
       background: var(--card); border: 1px solid var(--border);
-      border-radius: 12px; padding: 17px 20px;
+      border-radius: 12px; padding: 19px 22px;
       font-size: 14px; color: var(--white);
       transition: transform .3s var(--ease), border-color .3s, background .3s;
     }
@@ -768,19 +779,19 @@
     .fac-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
     .fac-pricing-wrap {
       background: var(--surface); border: 1px solid var(--border);
-      border-radius: 20px; padding: 40px; text-align: center;
+      border-radius: 20px; padding: 44px; text-align: center;
     }
     .fac-pricing-wrap h3 {
       font-family: var(--font-d); font-size: 26px; font-weight: 400;
-      color: var(--gold); margin-bottom: 24px;
+      color: var(--gold); margin-bottom: 28px;
     }
     .fac-pricing-wrap .price-grid { max-width: 620px; margin: 0 auto; grid-template-columns: repeat(3,1fr); }
     .fac-includes {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-      gap: 12px; max-width: 780px; margin: 32px auto 0; text-align: left;
+      gap: 15px; max-width: 780px; margin: 38px auto 0; text-align: left;
     }
     .fac-tagline {
-      margin-top: 46px; text-align: center; font-style: italic;
+      margin-top: 50px; text-align: center; font-style: italic;
       font-family: var(--font-d); font-size: 19px;
       color: var(--gold-light);
     }
@@ -804,7 +815,7 @@
       background: var(--card); border: 1px solid var(--border);
       border-radius: 20px; padding: 46px;
     }
-    .fgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .fgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
     .fg { display: flex; flex-direction: column; gap: 7px; }
     .fg.full { grid-column: 1/-1; }
     .fg label {
@@ -826,7 +837,7 @@
     }
 
     /* THERAPIST / ARTIST SELECT (booking forms) */
-    .ther-select-grid, .artist-select-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px,1fr)); gap: 12px; margin-top: 6px; }
+    .ther-select-grid, .artist-select-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px,1fr)); gap: 15px; margin-top: 8px; }
     .ther-select-card, .artist-select-card {
       cursor: pointer; border-radius: 12px; overflow: hidden; text-align: center;
       background: var(--surface); border: 1px solid rgba(244,239,230,.1);
@@ -861,7 +872,7 @@
     /* ═══════════════════ TESTIMONIALS ═══════════════════ */
     #testimonials { padding: 130px 0; background: var(--surface); }
     .test-hd { text-align: center; max-width: 580px; margin: 0 auto 76px; }
-    .test-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px,1fr)); gap: 22px; }
+    .test-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px,1fr)); gap: 26px; }
     .test-card {
       background: var(--card); border: 1px solid var(--border);
       border-radius: 18px; padding: 34px;
@@ -893,7 +904,7 @@
     #faq { padding: 130px 0; }
     .faq-wrap { display: grid; grid-template-columns: 1fr 1.5fr; gap: 88px; align-items: start; }
     .faq-hd { position: sticky; top: 100px; }
-    .faq-list { display: flex; flex-direction: column; gap: 11px; }
+    .faq-list { display: flex; flex-direction: column; gap: 14px; }
     .faq-item {
       border: 1px solid var(--border); border-radius: 12px;
       overflow: hidden; transition: border-color .3s;
@@ -1030,18 +1041,18 @@
 <nav id="nav">
   <div class="container">
     <div class="nav-inner">
-      <a href="#hero" class="nav-logo">
+      <a href="#hero" class="nav-logo" onclick="event.preventDefault(); window.scrollTo({top:0, behavior:'smooth'});">
         <span class="nav-logo-main">Serenity <span>Touch</span></span>
         <span class="nav-logo-sub">Wellness &amp; Tattoo Artistry</span>
       </a>
       <ul class="nav-links">
-        <li><a href="#about" data-m="#about" data-t="#tattoo-about">About</a></li>
-        <li><a href="#services" data-m="#services" data-t="#tattoo-services">Services</a></li>
-        <li><a href="#therapists" data-m="#therapists" data-t="#tattoo-artists" data-m-label="Therapists" data-t-label="Artists">Therapists</a></li>
-        <li><a href="#booking" data-m="#booking" data-t="#tattoo-booking">Book</a></li>
-        <li><a href="#faq" data-m="#faq" data-t="#tattoo-faq">FAQ</a></li>
+        <li><a href="#about" data-m="#about" data-t="#tattoo-about" data-c="#custom-about">About</a></li>
+        <li><a href="#services" data-m="#services" data-t="#tattoo-services" data-c="#custom-services">Services</a></li>
+        <li><a href="#therapists" data-m="#therapists" data-t="#tattoo-artists" data-c="#custom-team" data-m-label="Therapists" data-t-label="Artists">Therapists</a></li>
+        <li><a href="#booking" data-m="#booking" data-t="#tattoo-booking" data-c="#custom-booking">Book</a></li>
+        <li><a href="#faq" data-m="#faq" data-t="#tattoo-faq" data-c="#custom-booking">FAQ</a></li>
       </ul>
-      <a href="#booking" class="nav-cta dt" data-m="#booking" data-t="#tattoo-booking">Book Now</a>
+      <a href="#booking" class="nav-cta dt" data-m="#booking" data-t="#tattoo-booking" data-c="#custom-booking">Book Now</a>
       <div class="hamburger" id="ham"><span></span><span></span><span></span></div>
     </div>
   </div>
@@ -1049,12 +1060,12 @@
 
 <div class="mobile-nav" id="mnav">
   <button class="mobile-close" id="mclose">✕</button>
-  <a href="#about" onclick="cmn()" data-m="#about" data-t="#tattoo-about">About</a>
-  <a href="#services" onclick="cmn()" data-m="#services" data-t="#tattoo-services">Services</a>
-  <a href="#therapists" onclick="cmn()" data-m="#therapists" data-t="#tattoo-artists" data-m-label="Therapists" data-t-label="Artists">Therapists</a>
-  <a href="#booking" onclick="cmn()" data-m="#booking" data-t="#tattoo-booking">Book Now</a>
-  <a href="#faq" onclick="cmn()" data-m="#faq" data-t="#tattoo-faq">FAQ</a>
-  <a href="#contact" onclick="cmn()" data-m="#contact" data-t="#tattoo-booking">Contact</a>
+  <a href="#about" onclick="cmn()" data-m="#about" data-t="#tattoo-about" data-c="#custom-about">About</a>
+  <a href="#services" onclick="cmn()" data-m="#services" data-t="#tattoo-services" data-c="#custom-services">Services</a>
+  <a href="#therapists" onclick="cmn()" data-m="#therapists" data-t="#tattoo-artists" data-c="#custom-team" data-m-label="Therapists" data-t-label="Artists">Therapists</a>
+  <a href="#booking" onclick="cmn()" data-m="#booking" data-t="#tattoo-booking" data-c="#custom-booking">Book Now</a>
+  <a href="#faq" onclick="cmn()" data-m="#faq" data-t="#tattoo-faq" data-c="#custom-booking">FAQ</a>
+  <a href="#contact" onclick="cmn()" data-m="#contact" data-t="#tattoo-booking" data-c="#custom-booking">Contact</a>
 </div>
 
 <div id="massage-content" class="flow-panel active">
@@ -1090,6 +1101,13 @@
           <div class="selector-card-content">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><path d="M12 2l2.6 6.6L21 10l-5 4.4L17.5 21 12 17.3 6.5 21 8 14.4 3 10l6.4-1.4z"/></svg>
             <span>Tattoo</span>
+          </div>
+        </div>
+        <!-- EDIT HERE: 3rd flow toggle card — label text is set by CUSTOM_SECTION_NAME in the <script> below (search "Wellness") -->
+        <div class="selector-card" data-flow="custom" onclick="selectFlow('custom')">
+          <div class="selector-card-content">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><path d="M12 3v18M3 12h18M6 6l12 12M18 6L6 18"/></svg>
+            <span data-custom-name>Wellness</span>
           </div>
         </div>
       </div>
@@ -2078,6 +2096,13 @@
               <span>Tattoo</span>
             </div>
           </div>
+          <!-- EDIT HERE: 3rd flow toggle card — label text is set by CUSTOM_SECTION_NAME in the <script> below (search "Wellness") -->
+          <div class="selector-card" data-flow="custom" onclick="selectFlow('custom')">
+            <div class="selector-card-content">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><path d="M12 3v18M3 12h18M6 6l12 12M18 6L6 18"/></svg>
+              <span data-custom-name>Wellness</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -2664,6 +2689,523 @@
 
 </div>
 
+<!-- ══════════ WELLNESS (PLACEHOLDER SCAFFOLD — 3rd flow) ══════════ -->
+<div id="custom-content" class="flow-panel custom-content">
+
+  <!-- ══════════ CUSTOM HERO ══════════ -->
+  <section id="custom-hero" class="hero-section">
+    <div class="hero-bg">
+      <img class="hero-bg-img" src="images/custom/hero.jpg" alt="Custom Services" loading="eager">
+    </div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-eyebrow">Premium Custom Experiences</div>
+        <h1 class="hero-h1">
+          Refined Company,<br><em>Tailored to You</em>
+        </h1>
+        <p class="hero-sub">Discreet, Personalized Arrangements</p>
+        <p class="hero-desc">Sophisticated company for social occasions, private moments, and exclusive arrangements, matched to your preferences with complete discretion.</p>
+        <div class="hero-btns">
+          <a href="https://wa.me/12193336733" target="_blank" class="btn-wa">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp Chat
+          </a>
+        </div>
+        <div class="hero-selector">
+          <div class="selector-card" data-flow="massage" onclick="selectFlow('massage')">
+            <img src="images/massage.jpg" alt="" class="selector-card-bg" loading="lazy">
+            <div class="selector-card-overlay"></div>
+            <div class="selector-card-content">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="18.5" rx="8" ry="3"/><ellipse cx="12" cy="12" rx="6" ry="2.4"/><ellipse cx="12" cy="6.5" rx="4" ry="2"/></svg>
+              <span>Massage</span>
+            </div>
+          </div>
+          <div class="selector-card" data-flow="tattoo" onclick="selectFlow('tattoo')">
+            <div class="selector-card-content">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><path d="M12 2l2.6 6.6L21 10l-5 4.4L17.5 21 12 17.3 6.5 21 8 14.4 3 10l6.4-1.4z"/></svg>
+              <span>Tattoo</span>
+            </div>
+          </div>
+          <div class="selector-card active" data-flow="custom" onclick="selectFlow('custom')">
+            <div class="selector-card-content">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><path d="M12 3v18M3 12h18M6 6l12 12M18 6L6 18"/></svg>
+              <span data-custom-name>Custom Services</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="custom-about">
+    <div class="container">
+      <div class="about-text rv" style="max-width:760px; margin:0 auto;">
+        <span class="section-label">About <span data-custom-name>Custom Services</span></span>
+        <h2 class="section-title">Refined Company, <em>Tailored to You</em></h2>
+        <div class="divider"></div>
+        <p>Our Custom Services are designed for clients seeking sophisticated, discreet, and personalized company for social occasions, private moments, travel, and exclusive arrangements.</p>
+        <p>Every engagement is carefully matched to your preferences, schedule, and setting — whether you need polished company for dinner and events or more private, exclusive experiences.</p>
+        <p>Discretion, professionalism, and comfort remain at the center of every arrangement.</p>
+        <div class="about-feats">
+          <div class="about-feat"><div class="feat-dot"></div><span>Discreet &amp; Professional</span></div>
+          <div class="about-feat"><div class="feat-dot"></div><span>Fully Personalized</span></div>
+          <div class="about-feat"><div class="feat-dot"></div><span>Social &amp; Private Options</span></div>
+          <div class="about-feat"><div class="feat-dot"></div><span>Travel &amp; Extended Arrangements</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="custom-services" style="background: var(--surface);">
+    <div class="container">
+      <div class="svc-hd rv">
+        <span class="section-label">What We Offer</span>
+        <h2 class="section-title">Our Custom <em>Experiences</em></h2>
+      </div>
+
+      <div class="svc-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+
+        <div class="svc-card rv" style="padding: 38px;">
+          <h3 style="margin-bottom: 8px;">Custom Social Experiences</h3>
+          <p style="margin-bottom: 22px;">Thoughtfully arranged social company for refined and discreet occasions.</p>
+          <ul style="list-style:none; padding:0; margin:0 0 28px; display:flex; flex-direction:column; gap:10px;">
+            <li style="font-size:13.5px; color:var(--white-dim); display:flex; gap:10px;"><span style="color:var(--gold);">•</span> Dinner &amp; Date Arrangements</li>
+            <li style="font-size:13.5px; color:var(--white-dim); display:flex; gap:10px;"><span style="color:var(--gold);">•</span> Social &amp; Event Company</li>
+            <li style="font-size:13.5px; color:var(--white-dim); display:flex; gap:10px;"><span style="color:var(--gold);">•</span> Party &amp; Night-Out Company</li>
+            <li style="font-size:13.5px; color:var(--white-dim); display:flex; gap:10px;"><span style="color:var(--gold);">•</span> Travel Company</li>
+            <li style="font-size:13.5px; color:var(--white-dim); display:flex; gap:10px;"><span style="color:var(--gold);">•</span> Business &amp; Networking Company</li>
+            <li style="font-size:13.5px; color:var(--white-dim); display:flex; gap:10px;"><span style="color:var(--gold);">•</span> Conversation &amp; Private Company</li>
+            <li style="font-size:13.5px; color:var(--white-dim); display:flex; gap:10px;"><span style="color:var(--gold);">•</span> Entertainment &amp; Activity Company</li>
+            <li style="font-size:13.5px; color:var(--white-dim); display:flex; gap:10px;"><span style="color:var(--gold);">•</span> Weekend / Extended Arrangements</li>
+            <li style="font-size:13.5px; color:var(--white-dim); display:flex; gap:10px;"><span style="color:var(--gold);">•</span> Special Occasion Company</li>
+            <li style="font-size:13.5px; color:var(--white-dim); display:flex; gap:10px;"><span style="color:var(--gold);">•</span> Personalized Social Arrangements</li>
+          </ul>
+          <div class="svc-pricing">
+            <div class="price-grid">
+              <div class="pi"><span class="pi-dur">1 Hour</span><span class="pi-amt">$350</span></div>
+              <div class="pi"><span class="pi-dur">2 Hours</span><span class="pi-amt">$650</span></div>
+              <div class="pi"><span class="pi-dur">3 Hours</span><span class="pi-amt">$900</span></div>
+              <div class="pi"><span class="pi-dur">4 Hours</span><span class="pi-amt">$1,150</span></div>
+              <div class="pi full"><span class="pi-dur">5 Hours</span><span class="pi-amt">$1,400</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="svc-card rv d1" style="padding: 38px;">
+          <h3 style="margin-bottom: 8px;">Custom Private Experiences</h3>
+          <p style="margin-bottom: 22px;">Highly personalized private arrangements for exclusive and tailored company.</p>
+          <ul style="list-style:none; padding:0; margin:0 0 28px; display:flex; flex-direction:column; gap:10px;">
+            <li style="font-size:13.5px; color:var(--white-dim); display:flex; gap:10px;"><span style="color:var(--gold);">•</span> Private Arrangements</li>
+            <li style="font-size:13.5px; color:var(--white-dim); display:flex; gap:10px;"><span style="color:var(--gold);">•</span> Exclusive Date Experiences</li>
+            <li style="font-size:13.5px; color:var(--white-dim); display:flex; gap:10px;"><span style="color:var(--gold);">•</span> Romantic Evening Arrangements</li>
+            <li style="font-size:13.5px; color:var(--white-dim); display:flex; gap:10px;"><span style="color:var(--gold);">•</span> Overnight Arrangements</li>
+            <li style="font-size:13.5px; color:var(--white-dim); display:flex; gap:10px;"><span style="color:var(--gold);">•</span> Extended Private Arrangements</li>
+            <li style="font-size:13.5px; color:var(--white-dim); display:flex; gap:10px;"><span style="color:var(--gold);">•</span> Weekend Exclusive Arrangements</li>
+            <li style="font-size:13.5px; color:var(--white-dim); display:flex; gap:10px;"><span style="color:var(--gold);">•</span> Personalized Exclusive Experiences</li>
+          </ul>
+          <div class="svc-pricing">
+            <div class="price-grid">
+              <div class="pi"><span class="pi-dur">1 Hour</span><span class="pi-amt">$500</span></div>
+              <div class="pi"><span class="pi-dur">2 Hours</span><span class="pi-amt">$900</span></div>
+              <div class="pi"><span class="pi-dur">3 Hours</span><span class="pi-amt">$1,250</span></div>
+              <div class="pi"><span class="pi-dur">4 Hours</span><span class="pi-amt">$1,600</span></div>
+              <div class="pi"><span class="pi-dur">5 Hours</span><span class="pi-amt">$2,000</span></div>
+              <div class="pi full"><span class="pi-dur">Overnight / Extended</span><span class="pi-amt">Custom</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="rv" style="margin-top: 40px; text-align:center; max-width:640px; margin-left:auto; margin-right:auto;">
+        <div class="divider" style="margin-left:auto; margin-right:auto;"></div>
+        <p style="font-family:var(--font-d); font-size:20px; color:var(--gold); margin-bottom:10px;">Extended Custom Arrangements</p>
+        <p style="font-size:14.5px; color:var(--white-dim);">Multi-day and travel arrangements are individually quoted based on duration, location, travel requirements, and scheduling.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEOS -->
+  <section id="custom-videos">
+    <div class="container">
+      <div class="exp-hd rv">
+        <span class="section-label">See It For Yourself</span>
+        <h2 class="section-title">Experience <span data-custom-name>Custom Services</span></h2>
+      </div>
+      <div class="exp-grid">
+        <div class="exp-card rv">
+          <div class="exp-video-frame">
+            <video src="videos/custom/video1.mp4" playsinline preload="metadata"></video>
+            <div class="exp-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </div>
+          <div class="exp-info">
+            <h3>Experience 1</h3>
+          </div>
+        </div>
+        <div class="exp-card rv d1">
+          <div class="exp-video-frame">
+            <video src="videos/custom/video2.mp4" playsinline preload="metadata"></video>
+            <div class="exp-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </div>
+          <div class="exp-info">
+            <h3>Experience 2</h3>
+          </div>
+        </div>
+        <div class="exp-card rv d2">
+          <div class="exp-video-frame">
+            <video src="videos/custom/video3.mp4" playsinline preload="metadata"></video>
+            <div class="exp-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </div>
+          <div class="exp-info">
+            <h3>Experience 3</h3>
+          </div>
+        </div>
+        <div class="exp-card rv d3">
+          <div class="exp-video-frame">
+            <video src="videos/custom/video4.mp4" playsinline preload="metadata"></video>
+            <div class="exp-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </div>
+          <div class="exp-info">
+            <h3>Experience 4</h3>
+          </div>
+        </div>
+        <div class="exp-card rv">
+          <div class="exp-video-frame">
+            <video src="videos/custom/video5.mp4" playsinline preload="metadata"></video>
+            <div class="exp-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </div>
+          <div class="exp-info">
+            <h3>Experience 5</h3>
+          </div>
+        </div>
+        <div class="exp-card rv d1">
+          <div class="exp-video-frame">
+            <video src="videos/custom/video6.mp4" playsinline preload="metadata"></video>
+            <div class="exp-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </div>
+          <div class="exp-info">
+            <h3>Experience 6</h3>
+          </div>
+        </div>
+        <div class="exp-card rv d2">
+          <div class="exp-video-frame">
+            <video src="videos/custom/video7.mp4" playsinline preload="metadata"></video>
+            <div class="exp-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </div>
+          <div class="exp-info">
+            <h3>Experience 7</h3>
+          </div>
+        </div>
+        <div class="exp-card rv d3">
+          <div class="exp-video-frame">
+            <video src="videos/custom/video8.mp4" playsinline preload="metadata"></video>
+            <div class="exp-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </div>
+          <div class="exp-info">
+            <h3>Experience 8</h3>
+          </div>
+        </div>
+        <div class="exp-card rv">
+          <div class="exp-video-frame">
+            <video src="videos/custom/video9.mp4" playsinline preload="metadata"></video>
+            <div class="exp-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </div>
+          <div class="exp-info">
+            <h3>Experience 9</h3>
+          </div>
+        </div>
+        <div class="exp-card rv d1">
+          <div class="exp-video-frame">
+            <video src="videos/custom/video10.mp4" playsinline preload="metadata"></video>
+            <div class="exp-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </div>
+          <div class="exp-info">
+            <h3>Experience 10</h3>
+          </div>
+        </div>
+        <div class="exp-card rv d2">
+          <div class="exp-video-frame">
+            <video src="videos/custom/video11.mp4" playsinline preload="metadata"></video>
+            <div class="exp-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </div>
+          <div class="exp-info">
+            <h3>Experience 11</h3>
+          </div>
+        </div>
+        <div class="exp-card rv d3">
+          <div class="exp-video-frame">
+            <video src="videos/custom/video12.mp4" playsinline preload="metadata"></video>
+            <div class="exp-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </div>
+          <div class="exp-info">
+            <h3>Experience 12</h3>
+          </div>
+        </div>
+        <div class="exp-card rv">
+          <div class="exp-video-frame">
+            <video src="videos/custom/video13.mp4" playsinline preload="metadata"></video>
+            <div class="exp-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </div>
+          <div class="exp-info">
+            <h3>Experience 13</h3>
+          </div>
+        </div>
+        <div class="exp-card rv d1">
+          <div class="exp-video-frame">
+            <video src="videos/custom/video14.mp4" playsinline preload="metadata"></video>
+            <div class="exp-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </div>
+          <div class="exp-info">
+            <h3>Experience 14</h3>
+          </div>
+        </div>
+        <div class="exp-card rv d2">
+          <div class="exp-video-frame">
+            <video src="videos/custom/video15.mp4" playsinline preload="metadata"></video>
+            <div class="exp-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </div>
+          <div class="exp-info">
+            <h3>Experience 15</h3>
+          </div>
+        </div>
+        <div class="exp-card rv d3">
+          <div class="exp-video-frame">
+            <video src="videos/custom/video16.mp4" playsinline preload="metadata"></video>
+            <div class="exp-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </div>
+          <div class="exp-info">
+            <h3>Experience 16</h3>
+          </div>
+        </div>
+        <div class="exp-card rv">
+          <div class="exp-video-frame">
+            <video src="videos/custom/video17.mp4" playsinline preload="metadata"></video>
+            <div class="exp-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </div>
+          <div class="exp-info">
+            <h3>Experience 17</h3>
+          </div>
+        </div>
+        <div class="exp-card rv d1">
+          <div class="exp-video-frame">
+            <video src="videos/custom/video18.mp4" playsinline preload="metadata"></video>
+            <div class="exp-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </div>
+          <div class="exp-info">
+            <h3>Experience 18</h3>
+          </div>
+        </div>
+        <div class="exp-card rv d2">
+          <div class="exp-video-frame">
+            <video src="videos/custom/video19.mp4" playsinline preload="metadata"></video>
+            <div class="exp-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </div>
+          <div class="exp-info">
+            <h3>Experience 19</h3>
+          </div>
+        </div>
+        <div class="exp-card rv d3">
+          <div class="exp-video-frame">
+            <video src="videos/custom/video20.mp4" playsinline preload="metadata"></video>
+            <div class="exp-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          </div>
+          <div class="exp-info">
+            <h3>Experience 20</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEET OUR SPECIALISTS -->
+  <section id="custom-team">
+    <div class="container">
+      <div class="ther-hd rv">
+        <span class="section-label">Our Specialists</span>
+        <h2 class="section-title">Meet Our <em>Specialists</em></h2>
+      </div>
+      <div class="ther-grid">
+        <div class="ther-card rv">
+          <div class="ther-avatar"><img src="images/custom/gallery1.jpg" alt="Yasmine" loading="lazy"></div>
+          <div class="ther-info"><h3>Yasmine</h3></div>
+        </div>
+        <div class="ther-card rv d1">
+          <div class="ther-avatar"><img src="images/custom/gallery2.jpg" alt="Sari" loading="lazy"></div>
+          <div class="ther-info"><h3>Sari</h3></div>
+        </div>
+        <div class="ther-card rv d2">
+          <div class="ther-avatar"><img src="images/custom/gallery3.jpg" alt="Stacy" loading="lazy"></div>
+          <div class="ther-info"><h3>Stacy</h3></div>
+        </div>
+        <div class="ther-card rv d3">
+          <div class="ther-avatar"><img src="images/custom/gallery4.jpg" alt="David" loading="lazy"></div>
+          <div class="ther-info"><h3>David</h3></div>
+        </div>
+        <div class="ther-card rv">
+          <div class="ther-avatar"><img src="images/custom/gallery5.jpg" alt="Wayne" loading="lazy"></div>
+          <div class="ther-info"><h3>Wayne</h3></div>
+        </div>
+        <div class="ther-card rv d1">
+          <div class="ther-avatar"><img src="images/custom/gallery6.jpg" alt="Willow" loading="lazy"></div>
+          <div class="ther-info"><h3>Willow</h3></div>
+        </div>
+        <div class="ther-card rv d2">
+          <div class="ther-avatar"><img src="images/custom/gallery7.jpg" alt="Eddie" loading="lazy"></div>
+          <div class="ther-info"><h3>Eddie</h3></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING -->
+  <section id="custom-booking">
+    <div class="container">
+      <div class="booking-wrap">
+        <div class="rv">
+          <span class="section-label">Reserve Your Session</span>
+          <h2 class="booking-info" style="font-family:var(--font-d);font-size:clamp(34px,4vw,50px);font-weight:300;line-height:1.1;margin-bottom:18px;">Book Your <span data-custom-name>Custom Services</span> <em>Experience</em></h2>
+          <div class="divider"></div>
+          <p style="color:var(--white-dim);font-size:15px;margin-bottom:36px;">Tell us what you need and our team will confirm availability and details shortly. All arrangements remain fully discreet.</p>
+          <div class="bk-contact">
+            <div class="bk-text"><small>Call Us</small><span>+1 (219) 333-6733</span></div>
+          </div>
+          <div class="bk-contact">
+            <div class="bk-text"><small>Email Us</small><span>stouchwellness@gmail.com</span></div>
+          </div>
+          <div class="bk-contact">
+            <div class="bk-text"><small>WhatsApp</small><a href="https://wa.me/12193336733" target="_blank">+1 (219) 333-6733</a></div>
+          </div>
+        </div>
+        <div class="booking-form-wrap rv d2">
+          <div id="custom-form-success" style="display:none; text-align:center; padding:48px 24px;">
+            <div style="font-size:40px; margin-bottom:16px; color:var(--gold);">&#10003;</div>
+            <h3 style="font-family:var(--font-d); font-size:28px; font-weight:300; color:var(--gold); margin-bottom:12px;">Booking Request Sent!</h3>
+            <p style="color:var(--white-dim); font-size:15px;">Our team will confirm your appointment shortly. Check your email for a confirmation.</p>
+          </div>
+
+          <div id="custom-form-error" style="display:none; background:rgba(220,50,50,.1); border:1px solid rgba(220,50,50,.3); border-radius:8px; padding:16px; margin-bottom:20px; color:#ff6b6b; font-size:13.5px;">
+            Something went wrong. Please try again or contact us directly on WhatsApp.
+          </div>
+
+          <form id="custom-booking-form" action="https://formspree.io/f/mnjrvkeg" method="POST">
+            <input type="hidden" name="_subject" value="New Custom Services Booking Request: Serenity Touch Wellness & Tattoo Artistry" data-custom-subject>
+            <input type="hidden" name="section" value="Custom Services" data-custom-name>
+            <div class="fgrid">
+              <div class="fg full">
+                <label>Select Your Specialist</label>
+                <div class="ther-select-grid" id="specialistSelectGrid">
+                  <div class="ther-select-card" data-name="Yasmine" onclick="selectSpecialist(this)">
+                    <div class="tsc-avatar">
+                      <img src="images/custom/gallery1.jpg" alt="Yasmine" loading="lazy">
+                      <div class="tsc-check">✓</div>
+                    </div>
+                    <div class="tsc-info"><h4>Yasmine</h4></div>
+                  </div>
+                  <div class="ther-select-card" data-name="Sari" onclick="selectSpecialist(this)">
+                    <div class="tsc-avatar">
+                      <img src="images/custom/gallery2.jpg" alt="Sari" loading="lazy">
+                      <div class="tsc-check">✓</div>
+                    </div>
+                    <div class="tsc-info"><h4>Sari</h4></div>
+                  </div>
+                  <div class="ther-select-card" data-name="Stacy" onclick="selectSpecialist(this)">
+                    <div class="tsc-avatar">
+                      <img src="images/custom/gallery3.jpg" alt="Stacy" loading="lazy">
+                      <div class="tsc-check">✓</div>
+                    </div>
+                    <div class="tsc-info"><h4>Stacy</h4></div>
+                  </div>
+                  <div class="ther-select-card" data-name="David" onclick="selectSpecialist(this)">
+                    <div class="tsc-avatar">
+                      <img src="images/custom/gallery4.jpg" alt="David" loading="lazy">
+                      <div class="tsc-check">✓</div>
+                    </div>
+                    <div class="tsc-info"><h4>David</h4></div>
+                  </div>
+                  <div class="ther-select-card" data-name="Wayne" onclick="selectSpecialist(this)">
+                    <div class="tsc-avatar">
+                      <img src="images/custom/gallery5.jpg" alt="Wayne" loading="lazy">
+                      <div class="tsc-check">✓</div>
+                    </div>
+                    <div class="tsc-info"><h4>Wayne</h4></div>
+                  </div>
+                  <div class="ther-select-card" data-name="Willow" onclick="selectSpecialist(this)">
+                    <div class="tsc-avatar">
+                      <img src="images/custom/gallery6.jpg" alt="Willow" loading="lazy">
+                      <div class="tsc-check">✓</div>
+                    </div>
+                    <div class="tsc-info"><h4>Willow</h4></div>
+                  </div>
+                  <div class="ther-select-card" data-name="Eddie" onclick="selectSpecialist(this)">
+                    <div class="tsc-avatar">
+                      <img src="images/custom/gallery7.jpg" alt="Eddie" loading="lazy">
+                      <div class="tsc-check">✓</div>
+                    </div>
+                    <div class="tsc-info"><h4>Eddie</h4></div>
+                  </div>
+                </div>
+                <input type="hidden" name="preferred_specialist" id="preferredSpecialistInput" value="">
+                <span class="therapist-error" id="specialistError">Please select a specialist to continue.</span>
+              </div>
+              <div class="fg"><label>Full Name</label><input type="text" name="full_name" placeholder="Your full name" required></div>
+              <div class="fg"><label>Email Address</label><input type="email" name="email" placeholder="your@email.com" required></div>
+              <div class="fg"><label>Phone Number</label><input type="tel" name="phone" placeholder="+1 (___) ___-____" required></div>
+              <div class="fg">
+                <label>Select a Service</label>
+                <select name="service" required>
+                  <option value="" disabled selected>Select a service</option>
+                  <optgroup label="Custom Social Experiences">
+                    <option>Dinner &amp; Date Arrangements</option>
+                    <option>Social &amp; Event Company</option>
+                    <option>Party &amp; Night-Out Company</option>
+                    <option>Travel Company</option>
+                    <option>Business &amp; Networking Company</option>
+                    <option>Conversation &amp; Private Company</option>
+                    <option>Entertainment &amp; Activity Company</option>
+                    <option>Weekend / Extended Arrangements</option>
+                    <option>Special Occasion Company</option>
+                    <option>Personalized Social Arrangements</option>
+                  </optgroup>
+                  <optgroup label="Custom Private Experiences">
+                    <option>Private Arrangements</option>
+                    <option>Exclusive Date Experiences</option>
+                    <option>Romantic Evening Arrangements</option>
+                    <option>Overnight Arrangements</option>
+                    <option>Extended Private Arrangements</option>
+                    <option>Weekend Exclusive Arrangements</option>
+                    <option>Personalized Exclusive Experiences</option>
+                  </optgroup>
+                </select>
+              </div>
+              <div class="fg">
+                <label>Preferred Duration</label>
+                <select name="duration" required>
+                  <option value="" disabled selected>Select duration</option>
+                  <option>1 Hour</option>
+                  <option>2 Hours</option>
+                  <option>3 Hours</option>
+                  <option>4 Hours</option>
+                  <option>5 Hours</option>
+                  <option>Overnight / Extended (Custom Quote)</option>
+                </select>
+              </div>
+              <div class="fg"><label>Preferred Date</label><input type="date" name="preferred_date" required></div>
+              <div class="fg"><label>Preferred Time</label><input type="time" name="preferred_time"></div>
+              <div class="fg full"><label>Location / Address</label><input type="text" name="location" placeholder="City, hotel, or full address"></div>
+              <div class="fg full"><label>Message / Special Requests</label><textarea name="message" placeholder="Any preferences, special requests, or details that help us match the right experience..."></textarea></div>
+              <p class="form-note">* Our team confirms availability and final details before finalizing any arrangement. Complete discretion is guaranteed.</p>
+              <div class="fg full"><button type="submit" class="btn-primary" style="width:100%;padding:18px;font-size:11.5px;" id="custom-submit-btn">Send Booking Request</button></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
 <!-- ══════════ FOOTER ══════════ -->
 <footer>
   <div class="container">
@@ -2687,21 +3229,21 @@
       <div class="foot-col">
         <h4>Quick Links</h4>
         <ul>
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#about" data-m="#about" data-t="#tattoo-about">About Us</a></li>
-          <li><a href="#therapists" data-m="#therapists" data-t="#tattoo-artists" data-m-label="Our Therapists" data-t-label="Our Artists">Our Therapists</a></li>
-          <li><a href="#booking" data-m="#booking" data-t="#tattoo-booking">Book a Session</a></li>
-          <li><a href="#faq" data-m="#faq" data-t="#tattoo-faq">FAQ</a></li>
+          <li><a href="#hero" onclick="event.preventDefault(); window.scrollTo({top:0, behavior:'smooth'});">Home</a></li>
+          <li><a href="#about" data-m="#about" data-t="#tattoo-about" data-c="#custom-about">About Us</a></li>
+          <li><a href="#therapists" data-m="#therapists" data-t="#tattoo-artists" data-c="#custom-team" data-m-label="Our Therapists" data-t-label="Our Artists">Our Therapists</a></li>
+          <li><a href="#booking" data-m="#booking" data-t="#tattoo-booking" data-c="#custom-booking">Book a Session</a></li>
+          <li><a href="#faq" data-m="#faq" data-t="#tattoo-faq" data-c="#custom-booking">FAQ</a></li>
         </ul>
       </div>
       <div class="foot-col">
         <h4>Services</h4>
         <ul>
-          <li><a href="#services" data-m="#services" data-t="#tattoo-services" data-m-label="Swedish Massage" data-t-label="Custom">Swedish Massage</a></li>
-          <li><a href="#services" data-m="#services" data-t="#tattoo-services" data-m-label="Deep Tissue" data-t-label="Fine Line">Deep Tissue</a></li>
-          <li><a href="#services" data-m="#services" data-t="#tattoo-services" data-m-label="Hot Stone Massage" data-t-label="Realism/Portraits">Hot Stone Massage</a></li>
-          <li><a href="#services" data-m="#services" data-t="#tattoo-services" data-m-label="Sports Massage" data-t-label="Blackwork/Geometric">Sports Massage</a></li>
-          <li><a href="#services" data-m="#services" data-t="#tattoo-services" data-m-label="Aromatherapy" data-t-label="Cover-Up/Rework">Aromatherapy</a></li>
+          <li><a href="#services" data-m="#services" data-t="#tattoo-services" data-c="#custom-services" data-m-label="Swedish Massage" data-t-label="Custom">Swedish Massage</a></li>
+          <li><a href="#services" data-m="#services" data-t="#tattoo-services" data-c="#custom-services" data-m-label="Deep Tissue" data-t-label="Fine Line">Deep Tissue</a></li>
+          <li><a href="#services" data-m="#services" data-t="#tattoo-services" data-c="#custom-services" data-m-label="Hot Stone Massage" data-t-label="Realism/Portraits">Hot Stone Massage</a></li>
+          <li><a href="#services" data-m="#services" data-t="#tattoo-services" data-c="#custom-services" data-m-label="Sports Massage" data-t-label="Blackwork/Geometric">Sports Massage</a></li>
+          <li><a href="#services" data-m="#services" data-t="#tattoo-services" data-c="#custom-services" data-m-label="Aromatherapy" data-t-label="Cover-Up/Rework">Aromatherapy</a></li>
         </ul>
       </div>
       <div class="foot-col">
@@ -2785,6 +3327,15 @@
   const footYearEl = document.getElementById('footYear');
   if (footYearEl) footYearEl.textContent = new Date().getFullYear();
 
+  // EDIT HERE: change this one constant to rename the 3rd ("Wellness") flow everywhere it appears
+  const CUSTOM_SECTION_NAME = 'Custom Services';
+  document.querySelectorAll('[data-custom-name]').forEach(el => {
+    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.value = CUSTOM_SECTION_NAME;
+    else el.textContent = CUSTOM_SECTION_NAME;
+  });
+  const customSubjectEl = document.querySelector('[data-custom-subject]');
+  if (customSubjectEl) customSubjectEl.value = 'New ' + CUSTOM_SECTION_NAME + ' Booking Request: Serenity Touch Wellness & Tattoo Artistry';
+
   function selectFlow(flow) {
     document.querySelectorAll('.selector-card').forEach(c => c.classList.toggle('active', c.dataset.flow === flow));
     document.querySelectorAll('.flow-panel').forEach(p => p.classList.remove('active'));
@@ -2797,7 +3348,10 @@
   // Update nav links/labels to point at the active flow's sections
   function updateNavForFlow(flow) {
     document.querySelectorAll('[data-m][data-t]').forEach(link => {
-      link.setAttribute('href', flow === 'tattoo' ? link.dataset.t : link.dataset.m);
+      let href = link.dataset.m;
+      if (flow === 'tattoo') href = link.dataset.t;
+      else if (flow === 'custom' && link.dataset.c) href = link.dataset.c;
+      link.setAttribute('href', href);
       if (link.dataset.mLabel && link.dataset.tLabel) {
         link.textContent = flow === 'tattoo' ? link.dataset.tLabel : link.dataset.mLabel;
       }
@@ -2978,10 +3532,18 @@
 
   // Therapist select (booking form)
   function selectTherapist(card) {
-    document.querySelectorAll('.ther-select-card').forEach(c => c.classList.remove('selected'));
+    card.closest('.ther-select-grid').querySelectorAll('.ther-select-card').forEach(c => c.classList.remove('selected'));
     card.classList.add('selected');
     document.getElementById('preferredTherapistInput').value = card.dataset.name;
     document.getElementById('therapistError').style.display = 'none';
+  }
+
+  // Specialist select (Custom Services booking form)
+  function selectSpecialist(card) {
+    card.closest('.ther-select-grid').querySelectorAll('.ther-select-card').forEach(c => c.classList.remove('selected'));
+    card.classList.add('selected');
+    document.getElementById('preferredSpecialistInput').value = card.dataset.name;
+    document.getElementById('specialistError').style.display = 'none';
   }
   // Booking form — Formspree AJAX submission
   const bookingFormEl = document.getElementById('booking-form');
@@ -3024,6 +3586,53 @@
         }
       } catch (err) {
         formError.style.display = 'block';
+        btn.textContent = 'Send Booking Request';
+        btn.disabled = false;
+      }
+    });
+  }
+
+  // Wellness (3rd flow) booking form — Formspree AJAX submission
+  const customFormEl = document.getElementById('custom-booking-form');
+  const customFormSuccess = document.getElementById('custom-form-success');
+  const customFormError = document.getElementById('custom-form-error');
+  if (customFormEl) {
+    customFormEl.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      if (!document.getElementById('preferredSpecialistInput').value) {
+        const err = document.getElementById('specialistError');
+        err.style.display = 'block';
+        document.getElementById('specialistSelectGrid').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      const btn = document.getElementById('custom-submit-btn');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      customFormError.style.display = 'none';
+
+      try {
+        const response = await fetch('https://formspree.io/f/mnjrvkeg', {
+          method: 'POST',
+          body: new FormData(customFormEl),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          customFormEl.style.display = 'none';
+          customFormSuccess.style.display = 'block';
+        } else {
+          const json = await response.json();
+          customFormError.textContent = json.errors
+            ? json.errors.map(x => x.message).join(', ')
+            : 'Something went wrong. Please try again.';
+          customFormError.style.display = 'block';
+          btn.textContent = 'Send Booking Request';
+          btn.disabled = false;
+        }
+      } catch (err) {
+        customFormError.style.display = 'block';
         btn.textContent = 'Send Booking Request';
         btn.disabled = false;
       }
